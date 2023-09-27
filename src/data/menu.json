@@ -1,0 +1,12 @@
+[
+    {
+        "title":"menu1",
+        "url":"http://www.baidu.com",
+        "icon":"mdi mdi-home"
+    },
+    {
+        "title":"menu2",
+        "url":"http://www.baidu.com",
+        "icon":"mdi mdi-home"
+    }
+]
