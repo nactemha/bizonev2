@@ -6,9 +6,16 @@ export default {
   failed: 'Action failed',
   success: 'Action was successful',
   //labels
-  label_loginusernameandpassword: 'Login With Username and Password',
-  label_username: "User Name",
-  label_password: "Password",
+  lbl_app_login: 'Application User Information',
+  lbl_esign_login: "E-Sign Information",
+  lbl_ldap_login: "LDAP Information",
+  lbl_ldap_username: "Domain User Name",
+  lbl_ldap_password: "Domain Password",
+  lbl_tcidentity: "T.C. Identity No",
+  lbl_username: "User Name",
+  lbl_password: "Password",
+
+
   //rules
   rules_required: "This field is required",
   rules_min: "This field must be at least {length} characters long",

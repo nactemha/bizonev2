@@ -112,3 +112,13 @@ export default {
   }
 }
 </script>
+<style>
+html {
+  height: 100%
+}
+
+body {
+  background: #fff;
+  height: 100%;
+}
+</style>

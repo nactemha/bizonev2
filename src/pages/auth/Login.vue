@@ -34,7 +34,8 @@
                                 }}</router-link>
                         </div>
                         <div class="row justify-center items-end q-mt-sm">
-                            <q-btn class="q-pa-sd" :label="$t('btn_submit')" type="submit" color="green-10"></q-btn>
+                            <q-btn class="q-pa-sd" :label="$t('btn_submit')" type="submit" color="green-10"
+                                @click="login()"></q-btn>
                         </div>
                     </q-form>
 
@@ -65,7 +66,7 @@
 import { ref } from 'vue'
 import { useQuasar } from 'quasar'
 import { useI18n } from 'vue-i18n'
-
+import { useAuthStore } from 'src/stores/auth'
 const { locale: i18n } = useI18n({ useScope: 'global' })
 function changeLocale(loc) {
     i18n.value = loc
@@ -81,7 +82,15 @@ const username = ref('')
 const password = ref('')
 const isPwd = ref(true)
 const accept = ref(false)
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const authStore = useAuthStore();
+function login() {
+    authStore.isSignedIn = true;
 
+    router.replace('/select-company')
+
+}
 function onSubmit() {
     console.log('accept.value', accept.value)
 

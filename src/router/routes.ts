@@ -5,10 +5,15 @@ const routes: RouteRecordRaw[] = [
     path: '/test',
     component: () => import('layouts/GreenSpace.vue'),
     children: [{ path: '', component: () => import('pages/Test.vue') }],
-    meta: { requiresAuth: true }
   },
   {
-    name: 'login',
+    path: '/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/Index.vue') }],
+    meta: { requiresAuth: true }
+
+  },
+  {
     path: '/auth/login',
     component: () => import('layouts/GreenSpace.vue'),
     children: [{ path: '', component: () => import('pages/auth/Login.vue') }]
@@ -28,7 +33,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/GreenSpace.vue'),
     children: [{ path: '', component: () => import('pages/auth/ChangePassword.vue') }]
   },
-
+  {
+    path: '/select-company',
+    component: () => import('layouts/GreenSpaceToolbar.vue'),
+    children: [{ path: '', component: () => import('pages/SelectCompany.vue') }]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

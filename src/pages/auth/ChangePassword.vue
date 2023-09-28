@@ -63,7 +63,7 @@ function getLocale() {
     return i18n.value
 }
 
-import { useRules } from '../composables/rules'
+import { useRules } from 'src/composables/rules'
 const { username: rule_username, password: rule_password } = useRules()
 const $q = useQuasar()
 const username = ref('')
