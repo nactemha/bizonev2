@@ -11,6 +11,7 @@ export default {
   lbl_ldap_login: "LDAP Bilgileri",
   lbl_ldap_username: "Domain Kullanıcı Adı",
   lbl_ldap_password: "Domain Şifre",
+  lbl_tcidentity: "T.C. Kimlik No",
   lbl_username: "Kullanıcı Adı",
   lbl_password: "Şifre",
 

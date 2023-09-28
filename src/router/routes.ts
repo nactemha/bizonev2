@@ -4,27 +4,29 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/test',
     component: () => import('layouts/GreenSpace.vue'),
-    children: [{ path: '', component: () => import('pages/Test.vue') }]
+    children: [{ path: '', component: () => import('pages/Test.vue') }],
+    meta: { requiresAuth: true }
   },
   {
-    path: '/',
+    name: 'login',
+    path: '/auth/login',
     component: () => import('layouts/GreenSpace.vue'),
-    children: [{ path: '', component: () => import('pages/Login.vue') }]
+    children: [{ path: '', component: () => import('pages/auth/Login.vue') }]
   },
   {
-    path: '/ldap',
+    path: '/auth/ldap',
     component: () => import('layouts/GreenSpace.vue'),
-    children: [{ path: '', component: () => import('pages/Ldap.vue') }]
+    children: [{ path: '', component: () => import('pages/auth/Ldap.vue') }]
   },
   {
-    path: '/esign',
+    path: '/auth/esign',
     component: () => import('layouts/GreenSpace.vue'),
-    children: [{ path: '', component: () => import('pages/Esign.vue') }]
+    children: [{ path: '', component: () => import('pages/auth/Esign.vue') }]
   },
   {
-    path: '/change-password',
+    path: '/auth/change-password',
     component: () => import('layouts/GreenSpace.vue'),
-    children: [{ path: '', component: () => import('pages/ChangePassword.vue') }]
+    children: [{ path: '', component: () => import('pages/auth/ChangePassword.vue') }]
   },
 
   // Always leave this as last one,

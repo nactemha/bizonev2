@@ -1,4 +1,13 @@
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
+
+export const useAuthStore = defineStore('auth', () => {
+    const isSignedIn = ref(false)
+
+    return { isSignedIn }
+})
+
+/*
 import loginResponseSample from '~/data/auth/login.json'
 
 
@@ -34,3 +43,5 @@ export const useAuthStore = defineStore('auth', {
         },
     },
 });
+*/
+

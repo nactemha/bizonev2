@@ -44,8 +44,9 @@
 
                 <div class="row items-end justify-between q-gutter-md q-pa-md">
                     <div class="q-gutter-sm">
-                        <q-btn to="/ldap" no-caps outline :label="$t('btn_ldap')" type="submit" color="blue-5"></q-btn>
-                        <q-btn to="/esign" no-caps outline :label="$t('btn_esign')" type="submit" color="blue-5"></q-btn>
+                        <q-btn to="/auth/ldap" no-caps outline :label="$t('btn_ldap')" type="submit" color="blue-5"></q-btn>
+                        <q-btn to="/auth/esign" no-caps outline :label="$t('btn_esign')" type="submit"
+                            color="blue-5"></q-btn>
                     </div>
                     <div>
                         <img v-if="getLocale() != 'en'" @click="changeLocale('en')" src="/images/en.svg" alt="logo"
@@ -73,7 +74,7 @@ function getLocale() {
     return i18n.value
 }
 
-import { useRules } from '../composables/rules'
+import { useRules } from 'src/composables/rules'
 const { username: rule_username, password: rule_password } = useRules()
 const $q = useQuasar()
 const username = ref('')

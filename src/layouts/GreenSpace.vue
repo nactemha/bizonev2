@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    background: #fff url(images/background.png) no-repeat;
+    background: #fff url(/images/background.png) no-repeat;
     background-size: cover;
     height: 100%;
 }
