@@ -8,7 +8,7 @@
                 <i class="material-icons text-green-10"
                     style="border-radius:100px;background:#fff;font-size:100px;margin:-35px 0 0 0px;border:solid #fff 2px;">account_circle</i>
                 <q-img src="/images/logo.png" spinner-color="white" fit="contain"
-                    style="margin:-100px auto 0 auto;border-radius:5px 5px 0px 0px;padding:10px;background:#fff; border:solid #fff 2px;display: block;height: 44px; width:199px"></q-img>
+                    style="margin:0px auto 0 auto;border-radius:5px 5px 0px 0px;padding:10px;background:#fff; border:solid #fff 2px;display: block;height: 44px; width:199px"></q-img>
 
                 <q-card-section>
 
@@ -45,9 +45,9 @@
 
                 <div class="row items-end justify-between q-gutter-md q-pa-md">
                     <div class="q-gutter-sm">
-                        <q-btn to="/auth/ldap" no-caps outline :label="$t('btn_ldap')" type="submit" color="blue-5"></q-btn>
-                        <q-btn to="/auth/esign" no-caps outline :label="$t('btn_esign')" type="submit"
-                            color="blue-5"></q-btn>
+                        <q-btn to="/auth/ldap" no-caps :label="$t('btn_ldap')" type="submit" color="blue"></q-btn>
+                        <q-btn to="/auth/esign" no-caps :label="$t('btn_esign')" type="submit"
+                            style="background: goldenrod; color: white"></q-btn>
                     </div>
                     <div>
                         <img v-if="getLocale() != 'en'" @click="changeLocale('en')" src="/images/en.svg" alt="logo"

@@ -1,0 +1,8 @@
+{
+  "appId": "org.capacitor.quasar.app",
+  "appName": "BizoneV2",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

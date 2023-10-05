@@ -14,6 +14,7 @@ export default {
   lbl_tcidentity: "T.C. Kimlik No",
   lbl_username: "Kullanıcı Adı",
   lbl_password: "Şifre",
+  lbl_clean: "Temizle",
 
   lbl_domain_username: "Domain Kullanıcı Adı",
   //rules

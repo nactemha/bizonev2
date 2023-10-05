@@ -61,26 +61,10 @@ body {
 </style>
 <script setup>
 import { fasSearch } from '@quasar/extras/fontawesome-v5'
-import {
-    ref
-}
+import { useToolbarStore } from 'src/stores/toolbar';
+import { ref, computed } from 'vue';
+import { storeToRefs } from 'pinia';
 
-    from 'vue'
-import {
-    storeToRefs
-}
-
-    from 'pinia';
-
-import {
-    useToolbarStore
-}
-
-    from 'src/stores/toolbar';
-
-const {
-    requireSearch,
-    searchKeyword
-} = storeToRefs(useToolbarStore());
+const { requireSearch, searchKeyword } = storeToRefs(useToolbarStore());
 const searhBarVisible = ref(false);
 </script>
