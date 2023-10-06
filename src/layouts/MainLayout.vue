@@ -68,53 +68,412 @@
     </q-header>
 
     <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
+      <q-card class="my-card text-white" style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)">
+
+        <q-card-section>
+          <div style="margin:5px">
+            <img v-if="getLocale() != 'en'" @click="changeLocale('en')" src="/images/en.svg" alt="logo" width="15"
+              height="15" class="shadow-3" />
+            <img v-if="getLocale() != 'tr'" @click="changeLocale('tr')" src="/images/tr.svg" alt="logo" width="15"
+              height="15" class="shadow-3" />
+          </div>
+          <div class="column justify-center items-center">
+            <div>
+              <q-avatar size="xl" style="background-color: white;">
+                <q-img fit="contain" src="/icons/people.svg" />
+              </q-avatar>
+            </div>
+            <div class="text-h6">Our Changing Planet
+            </div>
+            <div class="text-subtitle2">by John Doe
+            </div>
+
+          </div>
+        </q-card-section>
+
+      </q-card>
       <q-list bordered>
-        <q-expansion-item group="somegroup" icon="explore" label="First" default-opened header-class="text-primary">
+        <q-item class="text-primary" clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon color="primary" name="mdi-view-dashboard" />
+          </q-item-section>
+          <q-item-section>{{ $t('dashboard') }}</q-item-section>
+        </q-item>
+        <q-separator />
+        <q-item class="text-primary" clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon color="primary" name="fa-solid fa-calendar-days" />
+          </q-item-section>
+          <q-item-section>{{ $t('calendar') }}</q-item-section>
+        </q-item>
+        <q-expansion-item group="1group" icon="fa-solid fa-people-group" :label="$t('human_resources')" default-opened
+          header-class="text-primary">
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-              commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              <q-list>
+                <q-item class="text-primary" clickable v-ripple>
+                  <q-item-section avatar>
+                    <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                  </q-item-section>
+                  <q-item-section>{{ $t('workplace_location') }}</q-item-section>
+                </q-item>
+                <q-item class="text-primary" clickable v-ripple>
+                  <q-item-section avatar>
+                    <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                  </q-item-section>
+                  <q-item-section>{{ $t('osh_assignement') }}</q-item-section>
+                </q-item>
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('personal_management')"
+                  header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('personal_list') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('personal_medical') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('personal_info') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('subcontractor_management')"
+                  header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('subcontractor_list') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('subcontractor_personals') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('subcontractor_documents') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('subcontractor_definations') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('recruitment_management')"
+                  header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('recruitment_authorization') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('recruitment_approval') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('training_management')"
+                  header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('training_annual_program') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('training_planning') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('training_personal') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('training_types') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('training_types') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('training_osh') }}</q-item-section>
+                  </q-item>
+
+                </q-expansion-item>
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('discipline_management')"
+                  header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('discipline_penalty_clauses') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('discipline_penalties') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('visitor_management')"
+                  header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('visitor_tracking') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('visitor_definations') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('guide')" header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('guide_department_specific') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('guide_duty_specific') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('guide_team_specific') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+                <q-item class="text-primary" clickable v-ripple>
+                  <q-item-section avatar>
+                    <q-icon color="primary" name="mdi-view-dashboard" />
+                  </q-item-section>
+                  <q-item-section>{{ $t('osgb_authority') }}</q-item-section>
+                </q-item>
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('contracts')" header-class="text-primary">
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('contracts_workplace service agreement') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('contracts_personal') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('definations')"
+                  header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('definations_department') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('definations_duty') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('definations_shift') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('definations_documents') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+              </q-list>
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+        <q-expansion-item group="1group" icon="fa-solid fa-mountain-city" :label="$t('facility_management')"
+          default-opened header-class="text-primary">
+          <q-card>
+            <q-card-section>
+
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="bluetooth" />
+                </q-item-section>
+                <q-item-section>{{ $t('scheduler') }}</q-item-section>
+              </q-item>
+
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+        <q-expansion-item group="1group" icon="fa-solid fa-house-medical" :label="$t('medical')" default-opened
+          header-class="text-primary">
+          <q-card>
+            <q-card-section>
+
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="bluetooth" />
+                </q-item-section>
+                <q-item-section>{{ $t('scheduler') }}</q-item-section>
+              </q-item>
+
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+        <q-expansion-item group="1group" icon="fa-solid fa-user-shield" :label="$t('occupational_safety')" default-opened
+          header-class="text-primary">
+          <q-card>
+            <q-card-section>
+
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="bluetooth" />
+                </q-item-section>
+                <q-item-section>{{ $t('scheduler') }}</q-item-section>
+              </q-item>
+
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+        <q-expansion-item group="1group" icon="fa-solid fa-border-all" :label="$t('management_systems')" default-opened
+          header-class="text-primary">
+          <q-card>
+            <q-card-section>
+
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="bluetooth" />
+                </q-item-section>
+                <q-item-section>{{ $t('scheduler') }}</q-item-section>
+              </q-item>
+
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+        <q-separator />
+
+        <q-expansion-item group="1group" icon="mdi-file-chart" :label="$t('reports')" header-class="text-primary">
+          <q-card>
+            <q-card-section>
+
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="bluetooth" />
+                </q-item-section>
+                <q-item-section>{{ $t('scheduler') }}</q-item-section>
+              </q-item>
+
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+
+        <q-item class="text-primary" clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon color="primary" name="fa-solid fa-chart-pie" />
+          </q-item-section>
+          <q-item-section>{{ $t('statistics') }}</q-item-section>
+        </q-item>
+        <q-separator />
+
+        <q-expansion-item group="1group" icon="fa-solid fa-scale-balanced" :label="$t('law')" header-class="text-primary">
+          <q-card>
+            <q-card-section>
+
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="bluetooth" />
+                </q-item-section>
+                <q-item-section>{{ $t('scheduler') }}</q-item-section>
+              </q-item>
+
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+
+        <q-expansion-item group="1group" icon="fa-solid fa-network-wired" :label="$t('biportal')"
+          header-class="text-primary">
+          <q-card>
+            <q-card-section>
+
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="bluetooth" />
+                </q-item-section>
+                <q-item-section>{{ $t('scheduler') }}</q-item-section>
+              </q-item>
+
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+        <q-separator />
+
+        <q-expansion-item group="1group" icon="fa-solid fa-gears" :label="$t('settings')" header-class="text-primary">
+          <q-card>
+            <q-card-section>
+
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="bluetooth" />
+                </q-item-section>
+                <q-item-section>{{ $t('scheduler') }}</q-item-section>
+              </q-item>
+
             </q-card-section>
           </q-card>
         </q-expansion-item>
 
         <q-separator />
-
-        <q-expansion-item group="somegroup" icon="perm_identity" label="Second" header-class="text-teal">
-          <q-card>
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-              commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
-
-        <q-separator />
-
-        <q-expansion-item group="somegroup" icon="shopping_cart" label="Third" header-class="text-purple">
-          <q-card>
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-              commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
-
-        <q-separator />
-
-        <q-expansion-item group="somegroup" icon="bluetooth" label="Fourth" header-class="bg-teal text-white"
-          expand-icon-class="text-white">
-          <q-card class="bg-teal-2">
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-              commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
+        <q-item>
+          <q-item-section avatar>
+            <q-icon color="primary" name="fa-solid fa-sign-out-alt" />
+          </q-item-section>
+          <q-item-section>{{ $t('logout') }}</q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -152,6 +511,17 @@ import { storeToRefs } from 'pinia';
 import { useToolbarStore } from 'src/stores/toolbar';
 const { requireSearch, searchKeyword } = storeToRefs(useToolbarStore());
 const searhBarVisible = ref(false);
+
+import { useI18n } from 'vue-i18n'
+const { locale: i18n } = useI18n({ useScope: 'global' })
+function changeLocale(loc) {
+  i18n.value = loc
+}
+function getLocale() {
+  return i18n.value
+}
+
+
 </script>
 <style lang="scss">
 html {
