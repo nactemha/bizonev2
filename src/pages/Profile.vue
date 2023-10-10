@@ -19,7 +19,7 @@
             <div class="q-gutter-md" style="max-width: 1000px">
 
               <div class="text-h5 q-mt-sm q-mb-xs">Adres</div>
-              <q-input standout="bg-teal text-white" v-model="text" readonly label="Custom standout" />
+              <q-input standout="bg-blue text-white" v-model="text" readonly label="Custom standout" />
 
             </div>
 
@@ -30,13 +30,13 @@
                   <div class="q-gutter-md">
 
                     <div class="text-h5 q-mt-sm q-mb-xs">Adres</div>
-                    <q-input standout="bg-teal text-white" v-model="text" readonly label="arge 360 Şişli/İstanbul" />
+                    <q-input standout="bg-blue text-white" v-model="text" readonly label="arge 360 Şişli/İstanbul" />
 
                     <div class="text-h5 q-mt-sm q-mb-xs">Telefon</div>
-                    <q-input standout="bg-teal text-white" v-model="text" readonly label="0555 555 5555" />
+                    <q-input standout="bg-blue text-white" v-model="text" readonly label="0555 555 5555" />
 
                     <div class="text-h5 q-mt-sm q-mb-xs">Mail</div>
-                    <q-input standout="bg-teal text-white" v-model="text" readonly label="info@arge360.com" />
+                    <q-input standout="bg-blue text-white" v-model="text" readonly label="info@arge360.com" />
 
                   </div>
                 </div>
@@ -68,13 +68,13 @@
 
 
                         <div class="text-h6 q-mt-sm q-mb-xs ">Adres</div>
-                        <q-input standout="bg-teal text-white" class="bg-white" v-model="address" />
+                        <q-input standout="bg-blue text-white" class="bg-white" v-model="address" />
 
                         <div class="text-h6 q-mt-sm q-mb-xs">Telefon</div>
-                        <q-input standout="bg-teal text-white" v-model="phone" readonly />
+                        <q-input standout="bg-blue text-white" v-model="phone" readonly />
 
                         <div class="text-h6 q-mt-sm q-mb-xs">Mail</div>
-                        <q-input standout="bg-teal text-white" v-model="mail" readonly />
+                        <q-input standout="bg-blue text-white" v-model="mail" readonly />
 
                       </div>
                     </div>
@@ -102,22 +102,22 @@
                       <div class="q-gutter-md">
 
                         <div class="text-h6 q-mt-sm q-mb-xs">Medeni Durumu</div>
-                        <q-input standout="bg-teal text-white" v-model="civilStatus" readonly />
+                        <q-input standout="bg-blue text-white" v-model="civilStatus" readonly />
 
                         <div class="text-h6 q-mt-sm q-mb-xs">Uyruk</div>
-                        <q-input standout="bg-teal text-white" v-model="nationality" readonly />
+                        <q-input standout="bg-blue text-white" v-model="nationality" readonly />
 
                         <div class="text-h6 q-mt-sm q-mb-xs">Askerlik Durumu</div>
-                        <q-input standout="bg-teal text-white" v-model="soldiering" readonly />
+                        <q-input standout="bg-blue text-white" v-model="soldiering" readonly />
 
                         <div class="text-h6 q-mt-sm q-mb-xs">Doğum Tarihi</div>
-                        <q-input standout="bg-teal text-white" v-model="birthDate" readonly />
+                        <q-input standout="bg-blue text-white" v-model="birthDate" readonly />
 
                         <div class="text-h6 q-mt-sm q-mb-xs">Doğum Yeri</div>
-                        <q-input standout="bg-teal text-white" v-model="birtyPlace" readonly />
+                        <q-input standout="bg-blue text-white" v-model="birtyPlace" readonly />
 
                         <div class="text-h6 q-mt-sm q-mb-xs">Sürücü Belgesi</div>
-                        <q-input standout="bg-teal text-white" v-model="driveLicense" readonly />
+                        <q-input standout="bg-blue text-white" v-model="driveLicense" readonly />
 
                       </div>
                     </div>
