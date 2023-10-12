@@ -26,22 +26,35 @@
 
                 <div class="card-margin ">
                   <q-card class="my-card" flat>
-                    <q-card-section>
 
-                      <q-item>
-                        <q-item-section avatar>
 
-                          <q-avatar color="blue" text-color="white" icon="fa-solid fa-info" />
+                    <div class="row">
+                      <div class="col">
+                        <q-card-section>
 
-                        </q-item-section>
+                          <q-item>
+                            <q-item-section avatar>
 
-                        <q-item-section>
-                          <div class="text-h6">Genel Bilgiler</div>
-                        </q-item-section>
-                      </q-item>
+                              <q-avatar color="blue" text-color="white" icon="fa-solid fa-info" />
 
-                      <!--  <div class="text-subtitle2"></div> -->
-                    </q-card-section>
+                            </q-item-section>
+
+                            <q-item-section>
+                              <div class="text-h6">Genel Bilgiler</div>
+                            </q-item-section>
+                          </q-item>
+
+                          <!--  <div class="text-subtitle2"></div> -->
+                        </q-card-section>
+                      </div>
+                      <div class="col">
+
+                        <q-card-section style="float:right">
+                          <q-icon title="Düzenle" style="height: 50px;" name="fa-regular fa-pen-to-square"></q-icon>
+                        </q-card-section>
+
+                      </div>
+                    </div>
 
                     <q-markup-table>
                       <thead>
