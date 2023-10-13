@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "barcode": "123456789",
+    "medicineName": "Parol",
+    "brand": "Astrazenac",
+    "status": true,
+    "user": "buğra"
+  },
+  {
+    "id": 2,
+    "barcode": "123456789",
+    "medicineName": "Metaplex",
+    "brand": "Biontec",
+    "status": true,
+    "user": "buğra"
+  },
+  {
+    "id": 3,
+    "barcode": "123456789",
+    "medicineName": "wq",
+    "brand": "Biontec",
+    "status": true,
+    "user": "ali"
+  },
+  {
+    "id": 4,
+    "barcode": "123456789",
+    "medicineName": "dfdf",
+    "brand": "Biontec",
+    "status": true,
+    "user": "ahmet"
+  },
+  {
+    "id": 4,
+    "barcode": "123456789",
+    "medicineName": "dfdf",
+    "brand": "Biontec",
+    "status": true,
+    "user": "ahmet"
+  },
+  {
+    "id": 4,
+    "barcode": "123456789",
+    "medicineName": "dfdf",
+    "brand": "Biontec",
+    "status": true,
+    "user": "ahmet"
+  },
+  {
+    "id": 4,
+    "barcode": "123456789",
+    "medicineName": "dfdf",
+    "brand": "Biontec",
+    "status": true,
+    "user": "ahmet"
+  },
+  {
+    "id": 4,
+    "barcode": "123456789",
+    "medicineName": "dfdf",
+    "brand": "Biontec",
+    "status": true,
+    "user": "ahmet"
+  },
+  {
+    "id": 4,
+    "barcode": "123456789",
+    "medicineName": "dfdf",
+    "brand": "Biontec",
+    "status": true,
+    "user": "ahmet"
+  }
+]
