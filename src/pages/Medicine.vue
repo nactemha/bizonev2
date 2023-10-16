@@ -12,73 +12,17 @@
 
       <q-page-container>
 
-        <!-- Modal Start -->
+
+
+        <!-- Add and update button start -->
         <div class="q-pa-md q-gutter-sm">
-          <q-btn label="Ekle" color="primary" icon="fa-solid fa-plus" @click="addMedicineModal = true" />
-
-          <q-dialog v-model="addMedicineModal">
-            <q-card>
-
-              <q-card-section>
-                <div class="text-h6">İlaç Ekle</div>
-              </q-card-section>
-
-              <q-form @submit="onSubmit" class="q-gutter-md">
-
-                <q-separator />
-
-                <q-card-section style="max-height: 70vh; width: 450px;" class="scroll">
-
-
-
-                  <div class="q-pa-md modal">
-
-
-
-
-                    <div style="margin-bottom: 5px;">
-                      <q-select class="select" filled :options="['Seçiniz', 'İlaç', 'Sarf Malzeme', 'Demirbaş']"
-                        label="Tür" lazy-rules :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
-                    </div>
-
-
-                    <div style="margin-bottom: 5px;">
-                      <q-input class="txt" filled type="number" v-model="barkod" label="Barkod" lazy-rules
-                        :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
-                    </div>
-
-                    <div style="margin-bottom: 5px;">
-                      <q-input class="txt" filled label="İlaç Adı" lazy-rules
-                        :rules="[val => val && val.length > 0 || 'İlaç adı boş geçilemez']" />
-                    </div>
-
-                    <div style="margin-bottom: 5px;">
-                      <q-input class="txt" filled label="Firma Adı" lazy-rules
-                        :rules="[val => val && val.length > 0 || 'Firma adı boş geçilemez']" />
-                    </div>
-
-
-                  </div>
-
-                </q-card-section>
-
-                <q-separator />
-
-                <q-card-actions align="right">
-                  <q-btn flat label="Kapat" color="red" v-close-popup />
-                  <q-btn flat label="Kaydet" type="submit" color="primary" />
-                </q-card-actions>
-
-
-              </q-form>
-
-            </q-card>
-          </q-dialog>
+          <q-btn label="Ekle" color="primary" icon="fa-solid fa-plus" @click="AddUpdateModal()" />
         </div>
-        <!-- Modal End -->
+        <!-- Add and update button end -->
 
         <!-- Data Table Start -->
         <div class="q-pa-md">
+
           <q-table :grid="$q.screen.xs" flat bordered title="İlaç Listesi" :rows="data" :columns="columns" row-key="name"
             :filter="filter">
             <template v-slot:top-right>
@@ -92,23 +36,25 @@
 
 
             <template v-slot:body-cell-settings="props">
+
               <q-td :props="props">
-                <button class="btn" style="border:none;" title="Düzenle">
+                <button class="btn" style="border:none;" @click="AddUpdateModal(props.row)" title="Düzenle">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
 
-                <button class="btn" style="border:none;" title="Durumu">
+                <button class="btn" style="border:none;" @click="DeleteModal(props.row)" title="Durumu">
                   <i class="fa-solid fa-trash-can"></i>
                 </button>
 
-                <button class="btn" style="border:none;" title="Detay">
+                <!--  <button class="btn" style="border:none;" title="Detay">
                   <i class="fa-solid fa-eye"></i>
-                </button>
+                </button> -->
 
-                <button class="btn" style="border:none;" title="Favori">
+                <button class="btn" style="border:none;" @click="HeartModal(props.row)" title="Favori">
                   <i class="fa-regular fa-heart"></i>
                 </button>
               </q-td>
+
             </template>
 
           </q-table>
@@ -120,6 +66,127 @@
 
     </q-layout>
   </div>
+
+
+  <!-- Delete Modal Start -->
+  <div class="q-pa-md q-gutter-sm">
+
+    <q-dialog v-model="deleteMedicineModal">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">İlaç Durum</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none" style="width:450px;">
+
+          <div v-if="deleteStatus == 'true'">
+            <q-avatar color="red" text-color="white" icon="fa-solid fa-ban" />
+            {{ foundValue }} ilaç pasif edisin mi ?
+
+          </div>
+          <div v-else>
+            <q-avatar color="green" text-color="white" icon="fa-solid fa-check" />
+
+            {{ foundValue }} ilaç aktif edisin mi ?
+
+          </div>
+
+
+
+        </q-card-section>
+
+        <q-card-actions align="right" class="text-primary">
+          <q-btn flat label="İptal" v-close-popup />
+          <q-btn flat :label="deleteStatus == 'true' ? 'Pasif Yap' : 'Aktif Yap'" />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+  </div>
+  <!-- Delete Modal End -->
+
+  <!-- Heart Modal Start -->
+  <div class="q-pa-md q-gutter-sm">
+
+    <q-dialog v-model="heartMedicineModal">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Favori</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none" style="width:450px;">
+          <q-avatar color="red" text-color="white" icon="fa-solid fa-heart" />
+          {{ heartValue }} ilaç favorilere eklensin mi ?
+        </q-card-section>
+
+        <q-card-actions align="right" class="text-primary">
+          <q-btn flat label="İptal" v-close-popup />
+          <q-btn flat label=" Yap" />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+  </div>
+  <!-- Heart Modal End -->
+
+
+
+  <!-- Add and update modal start -->
+  <div class="q-pa-md q-gutter-sm">
+    <q-dialog v-model="addUpdateMedicineModal">
+      <q-card>
+
+        <q-card-section>
+          <div class="text-h6">{{ modelAddUpdateValue.title }}</div>
+        </q-card-section>
+
+        <q-form @submit="onSubmit" class="q-gutter-md">
+
+          <q-separator />
+
+          <q-card-section style="max-height: 70vh; width: 450px;" class="scroll">
+
+            <div class="q-pa-md modal">
+
+              <div style="margin-bottom: 5px;">
+                <q-select class="select" filled v-model="type" :virtual-scroll-horizontal="false"
+                  :options="['Seçiniz', 'İlaç', 'Sarf Malzeme', 'Demirbaş']" label="Tür" lazy-rules
+                  :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
+              </div>
+
+
+              <div style="margin-bottom: 5px;">
+                <q-input class="txt" filled type="number" v-model="barcode" label="Barkod" lazy-rules
+                  :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
+              </div>
+
+              <div style="margin-bottom: 5px;">
+                <q-input class="txt" v-model="medicineName" filled label="İlaç Adı" lazy-rules
+                  :rules="[val => val && val.length > 0 || 'İlaç adı boş geçilemez']" />
+              </div>
+
+              <div style="margin-bottom: 5px;">
+                <q-input class="txt" v-model="brand" filled label="Firma Adı" lazy-rules
+                  :rules="[val => val && val.length > 0 || 'Firma adı boş geçilemez']" />
+              </div>
+
+
+            </div>
+
+          </q-card-section>
+
+          <q-separator />
+
+          <q-card-actions align="right">
+            <q-btn flat label="Kapat" color="red" v-close-popup />
+            <q-btn flat :label="modelAddUpdateValue.button" type="submit" color="primary" />
+          </q-card-actions>
+
+
+        </q-form>
+
+      </q-card>
+    </q-dialog>
+  </div>
+  <!-- Add and update modal end -->
 </template>
 
 
@@ -131,9 +198,71 @@ import { useMedicineFetch } from "src/composables/medicine"
 const { fetch } = useMedicineFetch();
 import axios from 'axios';
 
-const barkod = "123"
 
-const addMedicineModal = ref(false)
+
+// Add and update start
+var type = ref("")
+var barcode = ref("")
+var medicineName = ref("")
+var brand = ref("")
+
+var modelAddUpdateValue = {
+  title: ref(""),
+  button: ref("")
+}
+var addUpdateMedicineModal = ref(false)
+
+
+var AddUpdateModal = (row = null) => {
+
+  //modelAddUpdateValue.medicineModal.value = true;
+  addUpdateMedicineModal.value = true
+
+  if (row == null) { // Add
+    modelAddUpdateValue.title = "İlaç Ekle"
+    modelAddUpdateValue.button = "Ekle"
+    type = ""
+    barcode = ""
+    medicineName = ""
+    brand = ""
+
+  }
+  else { // Update
+    modelAddUpdateValue.title = "İlaç Güncelle"
+    modelAddUpdateValue.button = "Güncelle"
+    type = row.type
+    barcode = row.barcode
+    medicineName = row.medicineName
+    brand = row.brand
+
+  }
+}
+// Add and update end
+
+// Delete start
+var deleteMedicineModal = ref(false)
+var deleteStatus = ref("")
+var foundValue
+var DeleteModal = (row) => {
+
+  console.log(row.barcode);
+  deleteMedicineModal.value = true;
+  foundValue = row.medicineName
+
+  row.status == true ? deleteStatus = "true" : deleteStatus = "false"
+}
+// Delete end
+
+// Heart start
+var heartMedicineModal = ref(false)
+var heartValue
+var HeartModal = (row) => {
+
+  heartMedicineModal.value = true;
+  heartValue = row.medicineName
+}
+// Heart end
+
 
 const columns = [
 
@@ -142,7 +271,14 @@ const columns = [
   { name: 'barcode', label: 'Barkod', align: 'left', field: 'barcode', sortable: true },
   { name: 'medicineName', label: 'İlaç Adı', align: 'left', field: 'medicineName', sortable: true },
   { name: 'brand', label: 'Firma Adı', align: 'left', field: 'brand', sortable: true },
-  { name: 'status', label: 'Durum', align: 'left', field: 'status', sortable: true },
+  {
+    name: 'status', label: 'Durum', align: 'left', field: 'status', sortable: true,
+    format: val => val ? "Aktif" : "Pasif",
+    style: val => val.status ? "color:green" : "color:red",
+
+
+
+  },
   { name: 'user', label: 'Sisteme İlacı Ekleyen', align: 'left', field: 'user', sortable: true },
 ]
 
@@ -158,6 +294,8 @@ const data = ref()
 onMounted(() => {
   data.value = fetch();
 })
+
+
 
 const GetListData = (value) => {
 
@@ -202,6 +340,7 @@ const GetListData = (value) => {
 
 
 }
+
 
 
 @media (max-width: 1200px) {

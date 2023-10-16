@@ -20,7 +20,7 @@
     "barcode": "123456789",
     "medicineName": "wq",
     "brand": "Biontec",
-    "status": true,
+    "status": false,
     "user": "ali"
   },
   {
@@ -36,7 +36,7 @@
     "barcode": "123456789",
     "medicineName": "dfdf",
     "brand": "Biontec",
-    "status": true,
+    "status": false,
     "user": "ahmet"
   },
   {
