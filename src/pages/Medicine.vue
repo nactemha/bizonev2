@@ -10,28 +10,84 @@
         </q-toolbar>
       </q-header>
 
-
-
       <q-page-container>
-        <div class="row">
-          <div class="col-12 col-md-6  q-ma-md">
-            <q-btn color="blue" text-color="white" unelevated icon="fa-solid fa-plus" label="Ekle" />
-          </div>
-          <!-- <div class="col q-ma-md">
-            <q-input outlined v-model="text" label="İlaç arayınız" />
-          </div> -->
+
+        <!-- Modal Start -->
+        <div class="q-pa-md q-gutter-sm">
+          <q-btn label="Ekle" color="primary" icon="fa-solid fa-plus" @click="addMedicineModal = true" />
+
+          <q-dialog v-model="addMedicineModal">
+            <q-card>
+
+              <q-card-section>
+                <div class="text-h6">İlaç Ekle</div>
+              </q-card-section>
+
+              <q-form @submit="onSubmit" class="q-gutter-md">
+
+                <q-separator />
+
+                <q-card-section style="max-height: 70vh; width: 450px;" class="scroll">
+
+
+
+                  <div class="q-pa-md modal">
+
+
+
+
+                    <div style="margin-bottom: 5px;">
+                      <q-select class="select" filled :options="['Seçiniz', 'İlaç', 'Sarf Malzeme', 'Demirbaş']"
+                        label="Tür" lazy-rules :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
+                    </div>
+
+
+                    <div style="margin-bottom: 5px;">
+                      <q-input class="txt" filled type="number" v-model="barkod" label="Barkod" lazy-rules
+                        :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
+                    </div>
+
+                    <div style="margin-bottom: 5px;">
+                      <q-input class="txt" filled label="İlaç Adı" lazy-rules
+                        :rules="[val => val && val.length > 0 || 'İlaç adı boş geçilemez']" />
+                    </div>
+
+                    <div style="margin-bottom: 5px;">
+                      <q-input class="txt" filled label="Firma Adı" lazy-rules
+                        :rules="[val => val && val.length > 0 || 'Firma adı boş geçilemez']" />
+                    </div>
+
+
+                  </div>
+
+                </q-card-section>
+
+                <q-separator />
+
+                <q-card-actions align="right">
+                  <q-btn flat label="Kapat" color="red" v-close-popup />
+                  <q-btn flat label="Kaydet" type="submit" color="primary" />
+                </q-card-actions>
+
+
+              </q-form>
+
+            </q-card>
+          </q-dialog>
         </div>
+        <!-- Modal End -->
 
-
+        <!-- Data Table Start -->
         <div class="q-pa-md">
           <q-table :grid="$q.screen.xs" flat bordered title="İlaç Listesi" :rows="data" :columns="columns" row-key="name"
             :filter="filter">
             <template v-slot:top-right>
               <q-input borderless filled dense debounce="300" v-model="filter" placeholder="Arama Yapınız">
-                <template v-slot:append>
-                  <q-icon name="search" />
-                </template>
+                <!--  <template v-slot:append>
+                </template> -->
               </q-input>
+              <q-btn icon="search" outline style="color: gray; margin-left: 3px;" @click="GetListData(filter)" />
+
             </template>
 
 
@@ -57,98 +113,7 @@
 
           </q-table>
         </div>
-
-
-        <!--     <div class="q-ma-md">
-
-          <div class="row">
-            <div class="col "></div>
-            <div class="col text-bold">#</div>
-            <div class="col text-bold">Barkod</div>
-            <div class="col text-bold">İlaç Adı</div>
-            <div class="col text-bold">Firma Adı</div>
-            <div class="col text-bold">Durum</div>
-            <div class="col text-bold">Sisteme İlacı Ekleyen </div>
-          </div>
-
-
-
-
-          <div class="row" v-for="item in data" :key="item" :class="GetRowClass(i)">
-            <div class=" col text-left active-btn ">
-              <button class="btn" style="border:none;" title="Düzenle">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </button>
-
-              <button class="btn" style="border:none;" title="Durumu">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
-
-              <button class="btn" style="border:none;" title="Detay">
-                <i class="fa-solid fa-eye"></i>
-              </button>
-
-              <button class="btn" style="border:none;" title="Favori">
-                <i class="fa-regular fa-heart"></i>
-              </button>
-
-            </div>
-            <div class=" col text-left ">{{ item.barcode }}</div>
-            <div class=" col text-left">{{ item.medicineName }}</div>
-            <div class=" col text-left">{{ item.brand }}</div>
-            <div class=" col text-left">{{ item.status ? "Active" : "Passive" }}</div>
-            <div class=" col text-left">{{ item.user }}</div>
-          </div>
-        </div> -->
-
-        <!--  <q-markup-table>
-          <thead>
-            <tr>
-              <td class="text-left" style="width: 5px;"></td>
-              <th class="text-left">#</th>
-              <th class="text-left">Barkod</th>
-              <th class="text-left text-bold">İlaç Adı</th>
-              <th class="text-left text-bold">Firma Adı</th>
-              <th class="text-left text-bold">Durum</th>
-              <th class="text-left text-bold">Sisteme İlacı Ekleyen</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="i in 8" :key="i" :class="GetRowClass(i)">
-              <td class="text-left active-btn ">
-                <button class="btn" style="border:none;" title="Düzenle">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-
-                <button class="btn" style="border:none;" title="Durumu">
-                  <i class="fa-solid fa-trash-can"></i>
-                </button>
-
-                <button class="btn" style="border:none;" title="Detay">
-                  <i class="fa-solid fa-eye"></i>
-                </button>
-
-                <button class="btn" style="border:none;" title="Favori">
-                  <i class="fa-regular fa-heart"></i>
-                </button>
-
-              </td>
-
-              <td class="text-left">3</td>
-              <td class="text-left ">5645643645543</td>
-              <td class="text-left">aspirin</td>
-              <td class="text-left">Budotekno</td>
-              <td class="text-left">Aktif</td>
-              <td class="text-left">4</td>
-            </tr>
-
-
-          </tbody>
-        </q-markup-table> -->
-
-
-
-
+        <!-- Data Table End -->
 
 
       </q-page-container>
@@ -164,7 +129,11 @@
 import { onMounted, ref } from 'vue'
 import { useMedicineFetch } from "src/composables/medicine"
 const { fetch } = useMedicineFetch();
+import axios from 'axios';
 
+const barkod = "123"
+
+const addMedicineModal = ref(false)
 
 const columns = [
 
@@ -179,65 +148,62 @@ const columns = [
 
 const filter = ref('')
 
+const pagination = ref({
+  page: 1, // Sayfa numarası
+  rowsPerPage: 10, // Kayıt sayısı
+});
+
 
 const data = ref()
 onMounted(() => {
   data.value = fetch();
 })
 
+const GetListData = (value) => {
+
+  alert(value)
 
 
+  /*  axios.get('url'+value)
+    .then(response => {
 
+      this.data = response.data;
+    })
+    .catch(error => {
+      console.error('API isteği sırasında bir hata oluştu:', error);
+    }); */
 
-
-/*
-const GetRowClass = (i) => {
-  if (i % 2 == 1) {
-    return 'light-row';
-  } else {
-    return '';
-  }
 }
-const blueModel = ref(true)
-const pinkModel = ref('Aktif')
 
-const rows = [
-
-  {
-    settings: "s",
-    id: 1,
-    barcode: "123456789",
-    medicineName: "Metaplex",
-    brand: "Biontec",
-    status: true,
-    user: "buğra"
-  },
-  {
-    settings: "s",
-    id: 1,
-    barcode: "123456789",
-    medicineName: "Metaplex",
-    brand: "Biontec",
-    status: true,
-    user: "buğra"
-  }
-  , {
-    settings: "s",
-    id: 1,
-    barcode: "123456789",
-    medicineName: "Metaplex",
-    brand: "Biontec",
-    status: true,
-    user: "buğra"
-  }
-
-] */
 
 </script>
 
 
 
 <style scoped lang="scss">
+@media (max-width: 600px) {
+  .modal {
+    margin: 0px;
+    padding: 10px;
+  }
+
+  .scroll {
+    margin: 0px;
+
+  }
+
+  .txt,
+  .select {
+    margin: 0;
+    padding: 0px;
+    width: 100%;
+
+  }
+
+
+}
+
+
 @media (max-width: 1200px) {
 
   .q-td button {
@@ -246,13 +212,8 @@ const rows = [
   }
 }
 
-
-.light-row {
-  background-color: #eee;
-  color: #000;
-}
-
 .btn {
   background-color: transparent;
+  cursor: pointer;
 }
 </style>
