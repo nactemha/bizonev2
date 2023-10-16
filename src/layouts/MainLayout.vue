@@ -339,14 +339,38 @@
           default-opened header-class="text-primary">
           <q-card>
             <q-card-section>
+              <q-expansion-item switch-toggle-side group="2group" :label="$t('stuff_management')"
+                header-class="text-primary">
 
-              <q-item clickable v-ripple>
-                <q-item-section avatar>
-                  <q-icon color="primary" name="bluetooth" />
-                </q-item-section>
-                <q-item-section>{{ $t('scheduler') }}</q-item-section>
-              </q-item>
+                <q-item class="text-primary" clickable v-ripple>
+                  <q-item-section avatar>
+                    <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                  </q-item-section>
+                  <q-item-section>{{ $t('tracking') }}</q-item-section>
+                </q-item>
+                <q-item class="text-primary" clickable v-ripple>
+                  <q-item-section avatar>
+                    <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                  </q-item-section>
+                  <q-item-section>{{ $t('operations') }}</q-item-section>
+                </q-item>
+                <q-expansion-item switch-toggle-side group="3group" :label="$t('definations')"
+                  header-class="text-primary">
 
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('storage') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('grouping') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+              </q-expansion-item>
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -354,14 +378,82 @@
           header-class="text-primary">
           <q-card>
             <q-card-section>
+              <q-expansion-item switch-toggle-side group="2group" :label="$t('stuff_management')"
+                header-class="text-primary">
 
-              <q-item clickable v-ripple>
-                <q-item-section avatar>
-                  <q-icon color="primary" name="bluetooth" />
-                </q-item-section>
-                <q-item-section>{{ $t('scheduler') }}</q-item-section>
-              </q-item>
+                <q-item class="text-primary" clickable v-ripple>
+                  <q-item-section avatar>
+                    <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                  </q-item-section>
+                  <q-item-section>{{ $t('exposure_measurements') }}</q-item-section>
+                </q-item>
+                <q-item class="text-primary" clickable v-ripple>
+                  <q-item-section avatar>
+                    <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                  </q-item-section>
+                  <q-item-section>{{ $t('poisoning') }}</q-item-section>
+                </q-item>
+                <q-item class="text-primary" clickable v-ripple>
+                  <q-item-section avatar>
+                    <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                  </q-item-section>
+                  <q-item-section>{{ $t('occupational_disease') }}</q-item-section>
+                </q-item>
+                <q-item class="text-primary" clickable v-ripple>
+                  <q-item-section avatar>
+                    <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                  </q-item-section>
+                  <q-item-section>{{ $t('employee_file') }}</q-item-section>
+                </q-item>
 
+                <q-expansion-item switch-toggle-side group="3group" :label="$t('administrative')"
+                  header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('storage') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('grouping') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+                <q-expansion-item switch-toggle-side group="3group" :label="$t('policlinic')" header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('storage') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('grouping') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+                <q-expansion-item switch-toggle-side group="3group" :label="$t('definations')"
+                  header-class="text-primary">
+
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('storage') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('grouping') }}</q-item-section>
+                  </q-item>
+                </q-expansion-item>
+              </q-expansion-item>
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -456,11 +548,17 @@
           <q-card>
             <q-card-section>
 
-              <q-item clickable v-ripple>
+              <q-item clickable v-ripple @click="changeTheme('blue')">
                 <q-item-section avatar>
-                  <q-icon color="primary" name="bluetooth" />
+                  <q-icon color="blue" name="circle" />
                 </q-item-section>
-                <q-item-section>{{ $t('scheduler') }}</q-item-section>
+                <q-item-section>{{ $t('blue-theme') }}</q-item-section>
+              </q-item>
+              <q-item clickable v-ripple @click="changeTheme('red')">
+                <q-item-section avatar>
+                  <q-icon color="red" name="circle" />
+                </q-item-section>
+                <q-item-section>{{ $t('blue-theme') }}</q-item-section>
               </q-item>
 
             </q-card-section>
@@ -498,6 +596,10 @@
 <script setup>
 import { ref } from 'vue'
 import { fasBell, fasStar, fasSearch } from '@quasar/extras/fontawesome-v5';
+import { useTheme } from 'src/composables/theme';
+
+const { changeTheme } = useTheme();
+
 const leftDrawerOpen = ref(false)
 const rightDrawerOpen = ref(false)
 function toggleLeftDrawer() {
@@ -520,8 +622,6 @@ function changeLocale(loc) {
 function getLocale() {
   return i18n.value
 }
-
-
 </script>
 <style lang="scss">
 html {
