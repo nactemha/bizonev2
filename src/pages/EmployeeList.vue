@@ -429,8 +429,6 @@
   </div>
   <!-- Add and update modal end -->
 
-
-
   <!-- Detail Modal Start -->
   <div class="q-pa-md q-gutter-sm">
 
@@ -732,11 +730,9 @@
 <script setup>
 import { ref } from 'vue'
 import data from 'src/data/employee.json'
+
+/* Data Table Start */
 const filter = ref('')
-
-
-
-
 const menu = ref(false)
 const columns = [
 
@@ -752,6 +748,7 @@ const columns = [
     style: val => val.Status ? "color:green" : "color:red",
   },
 ]
+/* Data Table end */
 
 
 

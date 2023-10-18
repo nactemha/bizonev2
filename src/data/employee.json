@@ -5,16 +5,32 @@
     "Surname":"Dost",
     "Workplace":"Arge 360",
     "Title": "Full Stack Developer",
-    "Status":true
+    "Status":true,
+    "SensitiveGroup":"-",
+    "Age":"45",
+    "Gender":"Erkek",
+    "Shift":"-",
+    "BloodGroup":"0 Rh+",
+    "Bmi":"-",
+    "Whr":"-",
+    "DegreeDisability":"0"
 
   },
   {
-    "id":1,
-    "Name":"Buğra",
-    "Surname":"Dost",
+    "id":2,
+    "Name":"Ahmet",
+    "Surname":"Göçer",
     "Workplace":"sds 360",
-    "Title": "Full Stack Developer",
-    "Status":false
+    "Title": "Yönetici",
+    "Status":false,
+    "SensitiveGroup":"-",
+    "Age":"45",
+    "Gender":"Erkek",
+    "Shift":"-",
+    "BloodGroup":"0 Rh-",
+    "Bmi":"-",
+    "Whr":"-",
+    "DegreeDisability":"0"
 
   }
 ]
