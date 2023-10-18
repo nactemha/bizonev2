@@ -1,0 +1,20 @@
+[
+  {
+    "id":1,
+    "Name":"Buğra",
+    "Surname":"Dost",
+    "Workplace":"Arge 360",
+    "Title": "Full Stack Developer",
+    "Status":true
+
+  },
+  {
+    "id":1,
+    "Name":"Buğra",
+    "Surname":"Dost",
+    "Workplace":"sds 360",
+    "Title": "Full Stack Developer",
+    "Status":false
+
+  }
+]
