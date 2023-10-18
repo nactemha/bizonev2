@@ -6,7 +6,10 @@
                     <div class="rounded-borders bg-primary text-white flex flex-center">
                         Ratio 1:1
                     </div>
-
+                    <button @click="update()">
+                        {{ state.count }}
+                    </button>
+                    <input v-model="state.count" />
                 </div>
             </div>
         </div>
@@ -14,7 +17,14 @@
 </template>
   
 <script setup>
-import { ref } from 'vue'
+import { reactive } from 'vue'
+
+const state = reactive({})
+function update() {
+    console.log(state);
+    Object.assign(state, { count: 1000 })
+}
+
 
 </script>
   

@@ -11,12 +11,9 @@
       </q-header>
 
       <q-page-container>
-
-
-
         <!-- Add and update button start -->
         <div class="q-pa-md q-gutter-sm">
-          <q-btn label="Ekle" color="primary" icon="fa-solid fa-plus" @click="AddUpdateModal()" />
+          <q-btn label="Ekle" color="primary" icon="fa-solid fa-plus" @click="addMedicine()" />
         </div>
         <!-- Add and update button end -->
 
@@ -38,11 +35,11 @@
             <template v-slot:body-cell-settings="props">
 
               <q-td :props="props">
-                <button class="btn" style="border:none;" @click="AddUpdateModal(props.row)" title="Düzenle">
+                <button class="btn" style="border:none;" @click="updateMedicine(props.row)" title="Düzenle">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
 
-                <button class="btn" style="border:none;" @click="DeleteModal(props.row)" title="Durumu">
+                <button class="btn" style="border:none;" @click="deleteMedicine" title="Durumu">
                   <i class="fa-solid fa-trash-can"></i>
                 </button>
 
@@ -67,42 +64,39 @@
     </q-layout>
   </div>
 
-
-  <!-- Delete Modal Start -->
-  <div class="q-pa-md q-gutter-sm">
-
-    <q-dialog v-model="deleteMedicineModal">
-      <q-card>
-        <q-card-section>
-          <div class="text-h6">İlaç Durum</div>
-        </q-card-section>
-
-        <q-card-section class="q-pt-none" style="width:450px;">
-
-          <div v-if="deleteStatus == 'true'">
-            <q-avatar color="red" text-color="white" icon="fa-solid fa-ban" />
-            {{ foundValue }} ilaç pasif edisin mi ?
-
-          </div>
-          <div v-else>
-            <q-avatar color="green" text-color="white" icon="fa-solid fa-check" />
-
-            {{ foundValue }} ilaç aktif edisin mi ?
-
-          </div>
+  <form-modal-dialog v-model="editMedicineDialog" title="İlaç Bilgisi" :positive="currentItem.id ? 'Güncelle' : 'Ekle'"
+    negative="Kapat" @positive="updateCommit()">
+    <div style="margin-bottom: 5px;">
+      <q-select class="select" filled v-model="currentItem.type" :virtual-scroll-horizontal="false"
+        :options="['Seçiniz', 'İlaç', 'Sarf Malzeme', 'Demirbaş']" label="Tür" lazy-rules
+        :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
+    </div>
 
 
+    <div style="margin-bottom: 5px;">
+      <q-input class="txt" filled type="number" v-model="currentItem.barcode" label="Barkod" lazy-rules
+        :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
+    </div>
 
-        </q-card-section>
+    <div style="margin-bottom: 5px;">
+      <q-input class="txt" v-model="currentItem.medicineName" filled label="İlaç Adı" lazy-rules
+        :rules="[val => val && val.length > 0 || 'İlaç adı boş geçilemez']" />
+    </div>
 
-        <q-card-actions align="right" class="text-primary">
-          <q-btn flat label="İptal" v-close-popup />
-          <q-btn flat :label="deleteStatus == 'true' ? 'Pasif Yap' : 'Aktif Yap'" />
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
-  </div>
-  <!-- Delete Modal End -->
+    <div style="margin-bottom: 5px;">
+      <q-input class="txt" v-model="currentItem.brand" filled label="Firma Adı" lazy-rules
+        :rules="[val => val && val.length > 0 || 'Firma adı boş geçilemez']" />
+    </div>
+
+  </form-modal-dialog>
+
+  <form-modal-dialog v-model="deleteMedicineDialog" title="İlaç Silme Onayı" @positive="deleteMedicine()" positive="Ekle"
+    negative="Kapat" persistent>
+    <span class="q-ml-sm">
+      <p>{{ currenItem.medicineName }} silinmesini onaylıyor musunu ?.</p>
+    </span>
+  </form-modal-dialog>
+
 
   <!-- Heart Modal Start -->
   <div class="q-pa-md q-gutter-sm">
@@ -125,147 +119,50 @@
       </q-card>
     </q-dialog>
   </div>
-  <!-- Heart Modal End -->
-
-
-
-  <!-- Add and update modal start -->
-  <div class="q-pa-md q-gutter-sm">
-    <q-dialog v-model="addUpdateMedicineModal">
-      <q-card>
-
-        <q-card-section>
-          <div class="text-h6">{{ modelAddUpdateValue.title }}</div>
-        </q-card-section>
-
-        <q-form @submit="onSubmit" class="q-gutter-md">
-
-          <q-separator />
-
-          <q-card-section style="max-height: 70vh; width: 450px;" class="scroll">
-
-            <div class="q-pa-md modal">
-
-              <div style="margin-bottom: 5px;">
-                <q-select class="select" filled v-model="type" :virtual-scroll-horizontal="false"
-                  :options="['Seçiniz', 'İlaç', 'Sarf Malzeme', 'Demirbaş']" label="Tür" lazy-rules
-                  :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
-              </div>
-
-
-              <div style="margin-bottom: 5px;">
-                <q-input class="txt" filled type="number" v-model="barcode" label="Barkod" lazy-rules
-                  :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
-              </div>
-
-              <div style="margin-bottom: 5px;">
-                <q-input class="txt" v-model="medicineName" filled label="İlaç Adı" lazy-rules
-                  :rules="[val => val && val.length > 0 || 'İlaç adı boş geçilemez']" />
-              </div>
-
-              <div style="margin-bottom: 5px;">
-                <q-input class="txt" v-model="brand" filled label="Firma Adı" lazy-rules
-                  :rules="[val => val && val.length > 0 || 'Firma adı boş geçilemez']" />
-              </div>
-
-
-            </div>
-
-          </q-card-section>
-
-          <q-separator />
-
-          <q-card-actions align="right">
-            <q-btn flat label="Kapat" color="red" v-close-popup />
-            <q-btn flat :label="modelAddUpdateValue.button" type="submit" color="primary" />
-          </q-card-actions>
-
-
-        </q-form>
-
-      </q-card>
-    </q-dialog>
-  </div>
-  <!-- Add and update modal end -->
 </template>
 
 
 <script setup>
 
 
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, reactive } from 'vue'
 import { useMedicineFetch } from "src/composables/medicine"
+import FormModalDialog from 'components/dialogs/FormModalDialog.vue'
 const { fetch } = useMedicineFetch();
-import axios from 'axios';
 
 
+const data = ref()
+const currentItem = ref({});
 
-// Add and update start
-var type = ref("")
-var barcode = ref("")
-var medicineName = ref("")
-var brand = ref("")
-
-var modelAddUpdateValue = {
-  title: ref(""),
-  button: ref("")
+const editMedicineDialog = ref(false);
+const deleteMedicineDialog = ref(false);
+function refresh() {
+  data.value = fetch();
 }
-var addUpdateMedicineModal = ref(false)
 
 
-var AddUpdateModal = (row = null) => {
-
-  //modelAddUpdateValue.medicineModal.value = true;
-  addUpdateMedicineModal.value = true
-
-  if (row == null) { // Add
-    modelAddUpdateValue.title = "İlaç Ekle"
-    modelAddUpdateValue.button = "Ekle"
-    type = ""
-    barcode = ""
-    medicineName = ""
-    brand = ""
-
-  }
-  else { // Update
-    modelAddUpdateValue.title = "İlaç Güncelle"
-    modelAddUpdateValue.button = "Güncelle"
-    type = row.type
-    barcode = row.barcode
-    medicineName = row.medicineName
-    brand = row.brand
-
+const addMedicine = () => {
+  currentItem.value = {}
+  editMedicineDialog.value = true
+}
+const updateMedicine = (item) => {
+  Object.assign(currentItem.value, item)
+  editMedicineDialog.value = true
+}
+const updateCommit = () => {
+  //api call 
+  let ok = true;
+  if (ok) {
+    editMedicineDialog.value = false
+    data.value.filter(x => x.id == currentItem.value.id).map(x => Object.assign(x, currentItem.value))
   }
 }
-// Add and update end
-
-// Delete start
-var deleteMedicineModal = ref(false)
-var deleteStatus = ref("")
-var foundValue
-var DeleteModal = (row) => {
-
-  console.log(row.barcode);
-  deleteMedicineModal.value = true;
-  foundValue = row.medicineName
-
-  row.status == true ? deleteStatus = "true" : deleteStatus = "false"
+const deleteMedicine = (item) => {
+  Object.assign(currentItem.value, item)
+  deleteMedicineDialog.value = true
 }
-// Delete end
-
-// Heart start
-var heartMedicineModal = ref(false)
-var heartValue
-var HeartModal = (row) => {
-
-  heartMedicineModal.value = true;
-  heartValue = row.medicineName
-}
-// Heart end
-
 
 const columns = [
-
   { name: 'settings', field: 'settings', align: "left", sortable: true },
   { name: 'id', align: 'left', label: '#', field: 'id', sortable: true },
   { name: 'barcode', label: 'Barkod', align: 'left', field: 'barcode', sortable: true },
@@ -275,82 +172,23 @@ const columns = [
     name: 'status', label: 'Durum', align: 'left', field: 'status', sortable: true,
     format: val => val ? "Aktif" : "Pasif",
     style: val => val.status ? "color:green" : "color:red",
-
-
-
   },
   { name: 'user', label: 'Sisteme İlacı Ekleyen', align: 'left', field: 'user', sortable: true },
 ]
-
 const filter = ref('')
-
 const pagination = ref({
   page: 1, // Sayfa numarası
   rowsPerPage: 10, // Kayıt sayısı
 });
 
 
-const data = ref()
 onMounted(() => {
-  data.value = fetch();
+  refresh();
 })
-
-
-
-const GetListData = (value) => {
-
-  alert(value)
-
-
-  /*  axios.get('url'+value)
-    .then(response => {
-
-      this.data = response.data;
-    })
-    .catch(error => {
-      console.error('API isteği sırasında bir hata oluştu:', error);
-    }); */
-
-}
-
-
 </script>
 
 
-
 <style scoped lang="scss">
-@media (max-width: 600px) {
-  .modal {
-    margin: 0px;
-    padding: 10px;
-  }
-
-  .scroll {
-    margin: 0px;
-
-  }
-
-  .txt,
-  .select {
-    margin: 0;
-    padding: 0px;
-    width: 100%;
-
-  }
-
-
-}
-
-
-
-@media (max-width: 1200px) {
-
-  .q-td button {
-    display: block;
-    margin-bottom: 10px;
-  }
-}
-
 .btn {
   background-color: transparent;
   cursor: pointer;

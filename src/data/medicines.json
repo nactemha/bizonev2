@@ -5,7 +5,8 @@
     "medicineName": "Parol",
     "brand": "Astrazenac",
     "status": true,
-    "user": "buğra"
+    "user": "buğra",
+    "type": "1"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "medicineName": "Metaplex",
     "brand": "Biontec",
     "status": true,
-    "user": "buğra"
+    "user": "buğra",
+    "type": "2"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "medicineName": "wq",
     "brand": "Biontec",
     "status": false,
-    "user": "ali"
+    "user": "ali",
+    "type": "3"
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "medicineName": "dfdf",
     "brand": "Biontec",
     "status": true,
-    "user": "ahmet"
+    "user": "ahmet",
+    "type": "2"
   },
   {
     "id": 4,
@@ -37,7 +41,8 @@
     "medicineName": "dfdf",
     "brand": "Biontec",
     "status": false,
-    "user": "ahmet"
+    "user": "ahmet",
+    "type": "3"
   },
   {
     "id": 4,
@@ -45,7 +50,8 @@
     "medicineName": "dfdf",
     "brand": "Biontec",
     "status": true,
-    "user": "ahmet"
+    "user": "ahmet",
+    "type": "3"
   },
   {
     "id": 4,
@@ -53,7 +59,8 @@
     "medicineName": "dfdf",
     "brand": "Biontec",
     "status": true,
-    "user": "ahmet"
+    "user": "ahmet",
+    "type": "2"
   },
   {
     "id": 4,
@@ -61,7 +68,8 @@
     "medicineName": "dfdf",
     "brand": "Biontec",
     "status": true,
-    "user": "ahmet"
+    "user": "ahmet",
+    "type": "3"
   },
   {
     "id": 4,
@@ -69,6 +77,7 @@
     "medicineName": "dfdf",
     "brand": "Biontec",
     "status": true,
-    "user": "ahmet"
+    "user": "ahmet",
+    "type": "2"
   }
 ]
