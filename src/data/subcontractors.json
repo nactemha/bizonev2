@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "WorkplaceTitle":"İş Sağlığı",
+    "WorkplaceConnected":"Arge360",
+    "DangerClass":"Az Tehlikeli",
+    "RegistrationNumber":1231122,
+    "Nace":"-",
+    "Status":false
+  },
+  {
+    "id": 2,
+    "WorkplaceTitle":"Sosyal Medya",
+    "WorkplaceConnected":"Arge360",
+    "DangerClass":"Çok Tehlikeli",
+    "RegistrationNumber":93412333,
+    "Nace":"-",
+    "Status":true
+  },
+  {
+    "id": 3,
+    "WorkplaceTitle":"Girişimcilik",
+    "WorkplaceConnected":"Garanti Bankası",
+    "DangerClass":"Orta Tehlikeli",
+    "RegistrationNumber":44244432,
+    "Nace":"-",
+    "Status":false
+  }
+
+]
