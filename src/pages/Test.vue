@@ -1,25 +1,29 @@
 <template>
-    <q-page class="row items-center justify-evenly">
-        test
-        <q-btn @click="toggleDarkMode">Toggle dark mode</q-btn>
+    <q-page>
+        <div class="absolute-center  full-width" style="max-width: 550px; background-color: red;">
+            <div class="q-pa-md">
+                <div class="q-gutter-md">
+                    <div class="rounded-borders bg-primary text-white flex flex-center">
+                        Ratio 1:1
+                    </div>
+                    <button @click="update()">
+                        {{ state.count }}
+                    </button>
+                    <input v-model="state.count" />
+                </div>
+            </div>
+        </div>
     </q-page>
 </template>
   
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { useQuasar } from 'quasar';
+<script setup>
+import { reactive } from 'vue'
 
-export default defineComponent({
-    name: 'PageIndex',
-    setup() {
-        const $q = useQuasar();
-        return {
-            toggleDarkMode() {
-                $q.dark.toggle();
-            },
-        };
-    },
-});
+const state = reactive({})
+function update() {
+    console.log(state);
+    Object.assign(state, { count: 1000 })
+}
 </script>
   
 <style>
