@@ -111,7 +111,7 @@
           <q-card>
             <q-card-section>
               <q-list>
-                <q-item class="text-primary" clickable v-ripple>
+                <q-item class="text-primary" to="/workplace" clickable v-ripple>
                   <q-item-section avatar>
                     <q-icon color="primary" name="fa-solid fa-ellipsis" />
                   </q-item-section>
