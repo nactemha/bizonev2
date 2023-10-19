@@ -1,20 +1,18 @@
 <template>
-    <q-layout>
-        <q-page-container>
-            <router-view />
-        </q-page-container>
-    </q-layout>
-    
+  <q-layout>
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <style>
 html {
-    height: 100%
+  height: 100%
 }
 
 body {
-    background: #fff url(/images/background.png) no-repeat center center fixed;
-    background-size: cover;
-    height: 100%;
+  background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  height: 100%;
 }
 </style>
