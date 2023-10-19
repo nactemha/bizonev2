@@ -20,8 +20,9 @@
         <!-- Data Table Start -->
         <div class="q-pa-md">
 
-          <q-table :grid="$q.screen.xs" flat bordered title="İlaç Listesi" :rows="data" :columns="columns" row-key="name"
-            :filter="filter">
+          <q-table :grid="$q.screen.xs" flat bordered title="İlaç Listesi" ref="tableRef" :rows="rows" :columns="columns"
+            row-key="id" v-model:pagination="pagination" :loading="loading" :filter="filter" binary-state-sort
+            @request="onRequest">
             <template v-slot:top-right>
               <q-input borderless filled dense debounce="300" v-model="filter" placeholder="Arama Yapınız">
                 <!--  <template v-slot:append>
@@ -125,19 +126,66 @@
 <script setup>
 
 
-import { onMounted, ref, reactive } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useMedicineFetch } from "src/composables/medicine"
-import FormModalDialog from 'components/dialogs/FormModalDialog.vue'
-const { fetch } = useMedicineFetch();
-
+import FormModalDialog from 'components/FormModalDialog.vue'
+const { fetch, getRowsNumberCount } = useMedicineFetch();
 
 const data = ref()
 const currentItem = ref({});
 
+const tableRef = ref()
+const rows = ref([])
+const filter = ref('')
+const loading = ref(false)
+const pagination = ref({
+  sortBy: 'desc',
+  descending: false,
+  page: 1,
+  rowsPerPage: 3,
+  rowsNumber: 10
+})
+
+function onRequest(props) {
+  const { page, rowsPerPage, sortBy, descending } = props.pagination
+  const filter = props.filter
+
+  loading.value = true
+
+  // emulate server
+  setTimeout(() => {
+    // update rowsCount with appropriate value
+    pagination.value.rowsNumber = getRowsNumberCount(filter)
+
+    // get all rows if "All" (0) is selected
+    const fetchCount = rowsPerPage === 0 ? pagination.value.rowsNumber : rowsPerPage
+
+    // calculate starting row of data
+    const startRow = (page - 1) * rowsPerPage
+
+    // fetch data from "server"
+    const returnedData = fetch(startRow, fetchCount, filter, sortBy, descending)
+
+    // clear out existing data and add new
+    rows.value.splice(0, rows.value.length, ...returnedData)
+
+    // don't forget to update local pagination object
+    pagination.value.page = page
+    pagination.value.rowsPerPage = rowsPerPage
+    pagination.value.sortBy = sortBy
+    pagination.value.descending = descending
+
+    // ...and turn of loading indicator
+    loading.value = false
+  }, 1500)
+}
+
+
 const editMedicineDialog = ref(false);
 const deleteMedicineDialog = ref(false);
+
 function refresh() {
-  data.value = fetch();
+  tableRef.value.requestServerInteraction()
 }
 
 
@@ -175,11 +223,6 @@ const columns = [
   },
   { name: 'user', label: 'Sisteme İlacı Ekleyen', align: 'left', field: 'user', sortable: true },
 ]
-const filter = ref('')
-const pagination = ref({
-  page: 1, // Sayfa numarası
-  rowsPerPage: 10, // Kayıt sayısı
-});
 
 
 onMounted(() => {
