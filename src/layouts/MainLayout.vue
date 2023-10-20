@@ -79,9 +79,11 @@
           </div>
           <div class="column justify-center items-center">
             <div>
-              <q-avatar size="xl" style="background-color: white;">
-                <q-img fit="contain" src="/icons/people.svg" />
-              </q-avatar>
+              <q-item class="text-primary" to="/profile" clickable v-ripple>
+                <q-avatar size="xl" style="background-color: white;">
+                  <q-img fit="contain" src="/icons/people.svg" />
+                </q-avatar>
+              </q-item>
             </div>
             <div class="text-h6">Our Changing Planet
             </div>
@@ -126,19 +128,19 @@
                 <q-expansion-item switch-toggle-side group="2group" :label="$t('personal_management')"
                   header-class="text-primary">
 
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item class="text-primary" to="/employee-list" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
                     <q-item-section>{{ $t('personal_list') }}</q-item-section>
                   </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item class="text-primary" to="/employee-health-info" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
                     <q-item-section>{{ $t('personal_medical') }}</q-item-section>
                   </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item class="text-primary" to="/" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
@@ -148,7 +150,7 @@
                 <q-expansion-item switch-toggle-side group="2group" :label="$t('subcontractor_management')"
                   header-class="text-primary">
 
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item class="text-primary" to="/subcontractors" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
@@ -189,44 +191,38 @@
                     <q-item-section>{{ $t('recruitment_approval') }}</q-item-section>
                   </q-item>
                 </q-expansion-item>
-                <q-expansion-item switch-toggle-side group="2group" :label="$t('training_management')"
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('education_management')"
                   header-class="text-primary">
 
                   <q-item class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('training_annual_program') }}</q-item-section>
+                    <q-item-section>{{ $t('education_annual_program') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" to="/educational-planning" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('education_plan') }}</q-item-section>
                   </q-item>
                   <q-item class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('training_planning') }}</q-item-section>
+                    <q-item-section>{{ $t('education_personal') }}</q-item-section>
+                  </q-item>
+                  <q-item class="text-primary" to="/education-type" clickable v-ripple>
+                    <q-item-section avatar>
+                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
+                    </q-item-section>
+                    <q-item-section>{{ $t('education_types') }}</q-item-section>
                   </q-item>
                   <q-item class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('training_personal') }}</q-item-section>
-                  </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
-                    <q-item-section avatar>
-                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
-                    </q-item-section>
-                    <q-item-section>{{ $t('training_types') }}</q-item-section>
-                  </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
-                    <q-item-section avatar>
-                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
-                    </q-item-section>
-                    <q-item-section>{{ $t('training_types') }}</q-item-section>
-                  </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
-                    <q-item-section avatar>
-                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
-                    </q-item-section>
-                    <q-item-section>{{ $t('training_osh') }}</q-item-section>
+                    <q-item-section>{{ $t('education_osh') }}</q-item-section>
                   </q-item>
 
                 </q-expansion-item>
