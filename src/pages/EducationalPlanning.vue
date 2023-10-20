@@ -34,7 +34,7 @@
                 <i class="fa-solid fa-pen-to-square fa-lg"></i>
               </button>
 
-              <button class="btn" style="border:none;" title="Durumu" @click="deleteDialog = !deleteDialog">
+              <button class="btn" style="border:none;" title="Durumu" @click="deleteEducationalPlanModal(props.row)">
                 <i class="fa-solid fa-trash-can fa-lg"></i>
               </button>
 
@@ -145,8 +145,7 @@
   <form-modal-dialog v-model="deleteDialog" title="Eğitim Silme Onayı" @positive="del()" positive="Sil" negative="Kapat"
     persistent>
     <span class="q-ml-sm">
-      {{ dataItem }}
-      <p>{{ dataItem.educationName }} silinmesini onaylıyor musunuz ?</p>
+      <p>{{ dataItem.educationName }} planını silinmesini onaylıyor musunuz ?</p>
     </span>
   </form-modal-dialog>
   <!-- Delete modal end -->
@@ -192,6 +191,11 @@ const addEducationalPlanModal = () => {
 
 /* delete modal start */
 var deleteDialog = ref(false)
+
+const deleteEducationalPlanModal = (item) => {
+  Object.assign(dataItem.value, item)
+  deleteDialog.value = true
+}
 /* delete modal end */
 
 
