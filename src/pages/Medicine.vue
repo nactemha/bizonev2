@@ -67,24 +67,25 @@
 
   <form-modal-dialog v-model="editMedicineDialog" title="İlaç Bilgisi" :positive="currentItem.id ? 'Güncelle' : 'Ekle'"
     negative="Kapat" @positive="updateCommit()">
-    <div style="margin-bottom: 5px;">
+
+    <div class="input-group">
       <q-select class="select" filled v-model="currentItem.type" :virtual-scroll-horizontal="false"
         :options="['Seçiniz', 'İlaç', 'Sarf Malzeme', 'Demirbaş']" label="Tür" lazy-rules
         :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
     </div>
 
 
-    <div style="margin-bottom: 5px;">
+    <div class="input-group">
       <q-input class="txt" filled type="number" v-model="currentItem.barcode" label="Barkod" lazy-rules
         :rules="[val => val && val.length > 0 || 'Barkod boş geçilemez']" />
     </div>
 
-    <div style="margin-bottom: 5px;">
+    <div class="input-group">
       <q-input class="txt" v-model="currentItem.medicineName" filled label="İlaç Adı" lazy-rules
         :rules="[val => val && val.length > 0 || 'İlaç adı boş geçilemez']" />
     </div>
 
-    <div style="margin-bottom: 5px;">
+    <div class="input-group">
       <q-input class="txt" v-model="currentItem.brand" filled label="Firma Adı" lazy-rules
         :rules="[val => val && val.length > 0 || 'Firma adı boş geçilemez']" />
     </div>
@@ -94,7 +95,7 @@
   <form-modal-dialog v-model="deleteMedicineDialog" title="İlaç Silme Onayı" @positive="deleteMedicine()" positive="Ekle"
     negative="Kapat" persistent>
     <span class="q-ml-sm">
-      <p>{{ currenItem.medicineName }} silinmesini onaylıyor musunu ?.</p>
+      <p>{{ currenItem.medicineName }} silinmesini onaylıyor musunuz ?</p>
     </span>
   </form-modal-dialog>
 
@@ -126,7 +127,7 @@
 <script setup>
 
 
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, reactive } from 'vue'
 import { useMedicineFetch } from "src/composables/medicine"
 import FormModalDialog from 'components/FormModalDialog.vue'
 const { fetch, getRowsNumberCount } = useMedicineFetch();
@@ -198,7 +199,7 @@ const updateMedicine = (item) => {
   editMedicineDialog.value = true
 }
 const updateCommit = () => {
-  //api call 
+  //api call
   let ok = true;
   if (ok) {
     editMedicineDialog.value = false
@@ -235,5 +236,9 @@ onMounted(() => {
 .btn {
   background-color: transparent;
   cursor: pointer;
+}
+
+.input-group {
+  margin-bottom: 5px;
 }
 </style>
