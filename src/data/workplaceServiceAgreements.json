@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "agreement": "-",
+    "workplace": "Arge 360",
+    "agreementType": "Belirli Süre",
+    "agreementStartDate": "12.10.2023",
+    "agreementEndDate": "15.10.2023",
+    "status": false
+  },
+  {
+    "id": 2,
+    "agreement": "-",
+    "workplace": "Arge 360",
+    "agreementType": "Belirli Süre",
+    "agreementStartDate": "12.10.2023",
+    "agreementEndDate": "15.10.2023",
+    "status": false
+  },
+  {
+    "id": 3,
+    "agreement": "-",
+    "workplace": "Garanti Bankası",
+    "agreementType": "Belirli Süre",
+    "agreementStartDate": "12.10.2023",
+    "agreementEndDate": "15.10.2023",
+    "status": true
+  },
+  {
+    "id": 4,
+    "agreement": "-",
+    "workplace": "İş Bankası",
+    "agreementType": "Belirli Süre",
+    "agreementStartDate": "12.10.2023",
+    "agreementEndDate": "15.10.2023",
+    "status": true
+  },
+  {
+    "id": 5,
+    "agreement": "-",
+    "workplace": "Denizbank",
+    "agreementType": "Belirli Süre",
+    "agreementStartDate": "12.10.2023",
+    "agreementEndDate": "25.10.2023",
+    "status": false
+  },
+  {
+    "id": 6,
+    "agreement": "-",
+    "workplace": "Arge 360",
+    "agreementType": "Belirli Süre",
+    "agreementStartDate": "12.10.2023",
+    "agreementEndDate": "18.10.2023",
+    "status": false
+  },
+  {
+    "id": 7,
+    "agreement": "-",
+    "workplace": "Arge 360",
+    "agreementType": "Belirli Süre",
+    "agreementStartDate": "12.10.2023",
+    "agreementEndDate": "17.10.2023",
+    "status": true
+  }
+]
