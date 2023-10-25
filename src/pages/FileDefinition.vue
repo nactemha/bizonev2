@@ -72,10 +72,6 @@
                   <i class="fa-solid fa-trash-can fa-lg"></i>
                 </button>
 
-                <button class="btn" style="border:none;" title="Rapor">
-                  <i class="fa-solid fa-download fa-lg"></i>
-                </button>
-
               </div>
               <div class=" col text-left "> {{ i.id }} </div>
               <div class=" col text-left"> {{ i.fileName }} </div>
@@ -130,10 +126,6 @@
                   <i class="fa-solid fa-trash-can"></i>
                 </button>
 
-
-                <button class="btn" style="border:none;" title="Rapor Oluştur">
-                  <i class="fa-solid fa-download"></i>
-                </button>
               </div>
             </div>
 
