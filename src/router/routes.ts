@@ -73,6 +73,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/EducationalPlanning.vue') }]
   },
+  {
+    path: '/shift-definition',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/ShiftDefinition.vue') }]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
