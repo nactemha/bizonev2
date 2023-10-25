@@ -62,11 +62,11 @@
             <!-- Content start -->
             <div class="row div-row" v-for="(i, index) in data" :key="i" :class="GetRowClass(index)">
               <div class=" col text-left active-btn ">
-                <button class="btn" style="border:none;" @click="updateSectionDesModal(props.row)" title="Düzenle">
+                <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
                   <i class="fa-solid fa-pen-to-square fa-lg"></i>
                 </button>
 
-                <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(props.row)">
+                <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
                   <i class="fa-solid fa-trash-can fa-lg"></i>
                 </button>
 
