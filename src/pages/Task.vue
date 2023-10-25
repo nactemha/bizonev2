@@ -119,18 +119,14 @@
             <div class="sm-row">
               <div class="sm-title"></div>
               <div class="sm-content">
-                <button class="btn" style="border:none;" @click="updateSectionDesModal(props.row)" title="Düzenle">
+                <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
 
-                <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(props.row)">
+                <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
                   <i class="fa-solid fa-trash-can"></i>
                 </button>
 
-
-                <button class="btn" style="border:none;" title="Rapor Oluştur">
-                  <i class="fa-solid fa-download"></i>
-                </button>
               </div>
             </div>
 
@@ -140,8 +136,8 @@
             </div>
 
             <div class="sm-row">
-              <div class="sm-title">Bölüm Adı</div>
-              <div class="sm-content">{{ i.sectionName }}</div>
+              <div class="sm-title">Görev Adı</div>
+              <div class="sm-content">{{ i.taskName }}</div>
             </div>
 
             <div class="sm-row">
@@ -155,6 +151,12 @@
                 </span>
               </div>
             </div>
+
+            <div class="sm-row">
+              <div class="sm-title">Kayıt Tarihi</div>
+              <div class="sm-content">{{ i.createDate }}</div>
+            </div>
+
 
             <div class="sm-row">
               <div class="sm-title">Durum</div>
