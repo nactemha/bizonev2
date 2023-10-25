@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "sectionName": "İlkokul",
+    "affiliatesIsShow": true,
+    "status": true
+  },
+  {
+    "id": 2,
+    "sectionName": "Ortaokul",
+    "affiliatesIsShow": true,
+    "status": false
+  },
+  {
+    "id": 3,
+    "sectionName": "Lise",
+    "affiliatesIsShow": false,
+    "status": false
+  },
+  {
+    "id": 4,
+    "sectionName": "Önlisans",
+    "affiliatesIsShow": false,
+    "status": true
+  },
+  {
+    "id": 5,
+    "sectionName": "Lisans",
+    "affiliatesIsShow": false,
+    "status": false
+  },
+  {
+    "id": 6,
+    "sectionName": "Yüksek Lisans",
+    "affiliatesIsShow": false,
+    "status": false
+  }
+]

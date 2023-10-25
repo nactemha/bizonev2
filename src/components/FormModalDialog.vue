@@ -4,7 +4,7 @@
       <q-card-section>
         <slot name="title">
           <div class="row q-gutter-md items-center">
-            <q-avatar color="blue" text-color="white" icon="fa-solid fa-capsules" size="md" />
+            <q-avatar color="blue" text-color="white" :icon="props.icon" size="md" />
             <div class="text-h6">{{ props.title }}</div>
           </div>
         </slot>
@@ -36,6 +36,10 @@ import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
   title: {
+    type: String,
+    default: ""
+  },
+  icon: {
     type: String,
     default: ""
   },
