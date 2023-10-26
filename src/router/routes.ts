@@ -73,6 +73,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/EducationalPlanning.vue') }]
   },
+  {
+    path: '/section-directory',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/SectionDirectory.vue') }]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

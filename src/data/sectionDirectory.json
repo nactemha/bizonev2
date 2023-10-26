@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "sectionName": "İlkokul",
+    "affiliatesIsShow": true,
+    "status": true
+  },
+  {
+    "id": 2,
+    "sectionName": "Ortaokul",
+    "affiliatesIsShow": true,
+    "status": false
+  }
+]
