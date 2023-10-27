@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "taskName": "Almanca",
+    "affiliatesIsShow": true,
+    "status": true
+  },
+  {
+    "id": 2,
+    "taskName": "Yazılım",
+    "affiliatesIsShow": true,
+    "status": false
+  }
+]

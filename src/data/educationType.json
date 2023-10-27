@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "educationName": "lo",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, voluptate. Similique consequuntur corrupti possimus cumque minus, harum alias quod aspernatur rerum vel cupiditate exercitationem dignissimos? Rerum, quisquam! Provident, pariatur earum!",
+    "status": false
+  },
+  {
+    "id": 2,
+    "educationName": "dlfkdl ldkfldkfld",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "status": true
+  },
+  {
+    "id": 3,
+    "educationName": "dlfkfddddl ldkfldkfld",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "status": true
+  },
+  {
+    "id": 4,
+    "educationName": " dfdd dlfkdl ldkfldkfld",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "status": true
+  },
+  {
+    "id": 5,
+    "educationName": " ldkfldkfld",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "status": true
+  },
+  {
+    "id": 6,
+    "educationName": "dlfkdl ldkfldkfld",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "status": true
+  },
+  {
+    "id": 7,
+    "educationName": "dlfkdl ldkfldkfld",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "status": true
+  },
+  {
+    "id": 8,
+    "educationName": "dlfkdl ldkfldkfld",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "status": true
+  },
+  {
+    "id": 9,
+    "educationName": "dlfkdl ldkfldkfld",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "status": true
+  },
+  {
+    "id": 10,
+    "educationName": "dlfkdl ldkfldkfld",
+    "aim": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "status": true
+  }
+]

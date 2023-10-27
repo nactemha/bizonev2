@@ -74,9 +74,59 @@ const routes: RouteRecordRaw[] = [
     children: [{ path: "", component: () => import('pages/EducationalPlanning.vue') }]
   },
   {
+    path: '/education-type',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/EducationType.vue') }]
+  },
+  {
+    path: '/employee-agreements',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/EmployeeAgreements.vue') }]
+  },
+  {
+    path: '/definitions-document',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/FileDefinition.vue') }]
+  },
+  {
+    path: '/definitions-department',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/SectionDescription.vue') }]
+  },
+  {
+    path: '/section-directory',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/SectionDirectory.vue') }]
+  },
+  {
+    path: '/definitions-shift',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/ShiftDefinition.vue') }]
+  },
+  {
+    path: '/task-directory',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/TaskDirectory.vue') }]
+  },
+  {
+    path: '/task',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/Task.vue') }]
+  },
+  {
+    path: '/team-guide',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/TeamGuide.vue') }]
+  },
+  {
     path: '/visitor-definition',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/VisitorDefinition.vue') }]
+  },
+  {
+    path: '/workplace-service-agreements',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/WorkplaceServiceAgreements.vue') }]
   },
   // Always leave this as last one,
   // but you can also remove it

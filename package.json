@@ -9,7 +9,8 @@
     "lint": "eslint --ext .js,.ts,.vue ./",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
-    "build": "quasar build"
+    "build": "quasar build",
+    "aws-s3": "aws s3 sync dist/spa s3://bizonev2 --acl public-read"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
