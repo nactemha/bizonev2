@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "taskName": "Almanca",
+    "createDate": "12.01.2024",
+    "affiliatesIsShow": true,
+    "status": true
+  },
+  {
+    "id": 2,
+    "taskName": "Sınıf Öğretmeni",
+    "createDate": "12.01.2024",
+    "affiliatesIsShow": true,
+    "status": false
+  },
+  {
+    "id": 3,
+    "taskName": "Avukat",
+    "createDate": "12.01.2024",
+    "affiliatesIsShow": false,
+    "status": false
+  },
+  {
+    "id": 4,
+    "taskName": "Aşçı",
+    "createDate": "12.01.2024",
+    "affiliatesIsShow": false,
+    "status": true
+  },
+  {
+    "id": 5,
+    "taskName": "Yazılımcı",
+    "createDate": "12.01.2024",
+    "affiliatesIsShow": false,
+    "status": false
+  },
+  {
+    "id": 6,
+    "taskName": "Yönetmen",
+    "createDate": "12.01.2024",
+    "affiliatesIsShow": false,
+    "status": false
+  }
+]

@@ -108,6 +108,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/TaskDirectory.vue') }]
   },
+  {
+    path: '/task',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/Task.vue') }]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
