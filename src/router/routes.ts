@@ -83,6 +83,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/EmployeeAgreements.vue') }]
   },
+  {
+    path: '/file-definition',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/FileDefinition.vue') }]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
