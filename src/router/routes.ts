@@ -103,6 +103,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/ShiftDefinition.vue') }]
   },
+  {
+    path: '/task-directory',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/TaskDirectory.vue') }]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
