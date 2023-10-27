@@ -46,6 +46,10 @@ const props = defineProps({
     type: String,
     default: ""
   },
+  icon: {
+    type: String,
+    default: ""
+  },
   positive: {
     type: String,
     default: ""

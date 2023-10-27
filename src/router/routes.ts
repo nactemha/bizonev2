@@ -88,6 +88,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/FileDefinition.vue') }]
   },
+  {
+    path: '/section-description',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: "", component: () => import('pages/SectionDescription.vue') }]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
