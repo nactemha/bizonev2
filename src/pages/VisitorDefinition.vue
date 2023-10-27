@@ -32,7 +32,7 @@
 
                   <!-- Md Screen Div Table Start -->
                   <div class="md-screen">
-                    <div class="q-ma-md div-table">
+                    <div class="q-ma-md div-table" style="border: none;">
 
                       <!-- Banner start -->
                       <div class="row ">
@@ -205,7 +205,10 @@
 
 
 
-
+    <div class="input-group">
+      <q-input class="txt" v-model="dataItem.explanation" filled label="Kapı Adı" icon="fa-solid fa-door-open" lazy-rules
+        :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+    </div>
 
 
   </form-modal-dialog>
