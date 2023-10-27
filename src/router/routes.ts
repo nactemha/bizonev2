@@ -84,12 +84,12 @@ const routes: RouteRecordRaw[] = [
     children: [{ path: "", component: () => import('pages/EmployeeAgreements.vue') }]
   },
   {
-    path: '/file-definition',
+    path: '/definitions-document',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/FileDefinition.vue') }]
   },
   {
-    path: '/section-description',
+    path: '/definitions-department',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/SectionDescription.vue') }]
   },
@@ -99,7 +99,7 @@ const routes: RouteRecordRaw[] = [
     children: [{ path: "", component: () => import('pages/SectionDirectory.vue') }]
   },
   {
-    path: '/shift-definition',
+    path: '/definitions-shift',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: "", component: () => import('pages/ShiftDefinition.vue') }]
   },

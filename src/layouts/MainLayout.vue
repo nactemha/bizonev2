@@ -95,7 +95,7 @@
 
       </q-card>
       <q-list bordered>
-        <q-item class="text-primary" clickable v-ripple>
+        <q-item to="/" class="text-primary" clickable v-ripple>
           <q-item-section avatar>
             <q-icon color="primary" name="mdi-view-dashboard" />
           </q-item-section>
@@ -172,7 +172,7 @@
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('subcontractor_definations') }}</q-item-section>
+                    <q-item-section>{{ $t('subcontractor_definitions') }}</q-item-section>
                   </q-item>
                 </q-expansion-item>
                 <q-expansion-item switch-toggle-side group="2group" :label="$t('recruitment_management')"
@@ -251,80 +251,74 @@
                     </q-item-section>
                     <q-item-section>{{ $t('visitor_tracking') }}</q-item-section>
                   </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item to="/visitor-definition" class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('visitor_definations') }}</q-item-section>
+                    <q-item-section>{{ $t('visitor_definitions') }}</q-item-section>
                   </q-item>
                 </q-expansion-item>
                 <q-expansion-item switch-toggle-side group="2group" :label="$t('guide')" header-class="text-primary">
 
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item to="/section-directory" class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
                     <q-item-section>{{ $t('guide_department_specific') }}</q-item-section>
                   </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
-                    <q-item-section avatar>
-                      <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
-                    </q-item-section>
-                    <q-item-section>{{ $t('guide_duty_specific') }}</q-item-section>
-                  </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item to="/team-guide" class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
                     <q-item-section>{{ $t('guide_team_specific') }}</q-item-section>
                   </q-item>
                 </q-expansion-item>
-                <q-item class="text-primary" clickable v-ripple>
+                <q-item to="/task-directory" class="text-primary" clickable v-ripple>
                   <q-item-section avatar>
                     <q-icon color="primary" name="mdi-view-dashboard" />
                   </q-item-section>
                   <q-item-section>{{ $t('osgb_authority') }}</q-item-section>
                 </q-item>
                 <q-expansion-item switch-toggle-side group="2group" :label="$t('contracts')" header-class="text-primary">
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item to="/workplace-service-agreements" class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('contracts_workplace service agreement') }}</q-item-section>
+                    <q-item-section>{{ $t('contracts_workplace_service_agreement') }}</q-item-section>
                   </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item to="/employee-agreements" class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
                     <q-item-section>{{ $t('contracts_personal') }}</q-item-section>
                   </q-item>
                 </q-expansion-item>
-                <q-expansion-item switch-toggle-side group="2group" :label="$t('definations')"
+                <q-expansion-item switch-toggle-side group="2group" :label="$t('definitions')"
                   header-class="text-primary">
 
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item to="/definitions-department" class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('definations_department') }}</q-item-section>
+                    <q-item-section>{{ $t('definitions_department') }}</q-item-section>
                   </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item to="/task" class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('definations_duty') }}</q-item-section>
+                    <q-item-section>{{ $t('definitions_task') }}</q-item-section>
                   </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item to="/definitions-shift" class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('definations_shift') }}</q-item-section>
+                    <q-item-section>{{ $t('definitions_shift') }}</q-item-section>
                   </q-item>
-                  <q-item class="text-primary" clickable v-ripple>
+                  <q-item to="definitions-document" class="text-primary" clickable v-ripple>
                     <q-item-section avatar>
                       <q-icon color="primary" name="fa-solid fa-ellipsis-vertical" />
                     </q-item-section>
-                    <q-item-section>{{ $t('definations_documents') }}</q-item-section>
+                    <q-item-section>{{ $t('definitions_documents') }}</q-item-section>
                   </q-item>
                 </q-expansion-item>
               </q-list>
@@ -350,7 +344,7 @@
                   </q-item-section>
                   <q-item-section>{{ $t('operations') }}</q-item-section>
                 </q-item>
-                <q-expansion-item switch-toggle-side group="3group" :label="$t('definations')"
+                <q-expansion-item switch-toggle-side group="3group" :label="$t('definitions')"
                   header-class="text-primary">
 
                   <q-item class="text-primary" clickable v-ripple>
@@ -433,7 +427,7 @@
                     <q-item-section>{{ $t('grouping') }}</q-item-section>
                   </q-item>
                 </q-expansion-item>
-                <q-expansion-item switch-toggle-side group="3group" :label="$t('definations')"
+                <q-expansion-item switch-toggle-side group="3group" :label="$t('definitions')"
                   header-class="text-primary">
 
                   <q-item class="text-primary" clickable v-ripple>
@@ -575,6 +569,7 @@
       <router-view />
     </q-page-container>
 
+    <!--
     <q-footer elevated class="bg-grey-8 text-white">
       <q-toolbar>
         <q-toolbar-title>
@@ -585,6 +580,7 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
+  -->
 
   </q-layout>
 </template>
@@ -625,7 +621,10 @@ html {
 }
 
 body {
-  background: #fff;
+  //background-image: radial-gradient(#444cf7 0.5px, #fff 0.5px);
+  //background-size: 10px 10px;
+  background: none;
+  background-color: #fff;
   height: 100%;
 }
 

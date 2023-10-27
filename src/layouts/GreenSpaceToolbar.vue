@@ -36,7 +36,7 @@ html {
 }
 
 body {
-    background: #fff url(/images/background.png) no-repeat center center fixed;
+    background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
     background-size: cover;
     height: 100%;
 }
