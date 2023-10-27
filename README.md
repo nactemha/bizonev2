@@ -34,3 +34,5 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
 
 ### aws s3 sync
 aws s3 sync . s3://bizonev2 --acl public-read
+or 
+npm run aws-s3
