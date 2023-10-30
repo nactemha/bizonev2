@@ -22,7 +22,7 @@
 
                 <!-- Add and update button start -->
                 <div class="q-pa-md q-gutter-sm">
-                  <q-btn label="Ekle" color="primary" @click="addSectionDesModal()" icon="fa-solid fa-plus" />
+                  <q-btn label="Ekle" color="primary" @click="addDoorCardModal()" icon="fa-solid fa-plus" />
                 </div>
                 <!-- Add and update button end -->
 
@@ -76,7 +76,7 @@
                             <i class="fa-solid fa-pen-to-square fa-lg"></i>
                           </button>
 
-                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteDoorCardModal(i)">
                             <i class="fa-solid fa-trash-can fa-lg"></i>
                           </button>
 
@@ -119,7 +119,7 @@
                             <i class="fa-solid fa-pen-to-square"></i>
                           </button>
 
-                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteDoorCardModal(i)">
                             <i class="fa-solid fa-trash-can"></i>
                           </button>
 
@@ -170,7 +170,7 @@
 
                 <!-- Add and update button start -->
                 <div class="q-pa-md q-gutter-sm">
-                  <q-btn label="Ekle" color="primary" @click="addSectionDesModal()" icon="fa-solid fa-plus" />
+                  <q-btn label="Ekle" color="primary" @click="addInstructionCardModal()" icon="fa-solid fa-plus" />
                 </div>
                 <!-- Add and update button end -->
 
@@ -219,20 +219,21 @@
 
 
                       <!-- Content start -->
-                      <div class="row div-row" v-for="(i, index) in data.doorCard" :key="i" :class="GetRowClass(index)">
+                      <div class="row div-row" v-for="(i, index) in data.instructionCard" :key="i"
+                        :class="GetRowClass(index)">
                         <div class=" col text-left active-btn ">
-                          <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
+                          <button class="btn" style="border:none;" title="Düzenle">
                             <i class="fa-solid fa-pen-to-square fa-lg"></i>
                           </button>
 
-                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteInstructionCardModal(i)">
                             <i class="fa-solid fa-trash-can fa-lg"></i>
                           </button>
 
                         </div>
                         <div class=" col text-left "> {{ i.id }} </div>
-                        <div class=" col text-left"> {{ i.doorName }} </div>
-                        <div class=" col text-left"> {{ i.doorName }} </div>
+                        <div class=" col text-left"> {{ i.revisionNo }} </div>
+                        <div class=" col text-left"> {{ i.instructionName }} </div>
                         <div class=" col text-left">
                           <span v-if="i.status" style="color:green">Aktif</span>
                           <span v-else style="color:red">Pasif</span>
@@ -260,7 +261,7 @@
 
                     </div>
 
-                    <div class="sm-card" v-for="i in data.doorCard" :key="i">
+                    <div class="sm-card" v-for="i in data.instructionCard" :key="i">
 
                       <div class="sm-row">
                         <div class="sm-title"></div>
@@ -269,7 +270,7 @@
                             <i class="fa-solid fa-pen-to-square"></i>
                           </button>
 
-                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteInstructionCardModal(i)">
                             <i class="fa-solid fa-trash-can"></i>
                           </button>
 
@@ -283,12 +284,12 @@
 
                       <div class="sm-row">
                         <div class="sm-title">Revizyon No</div>
-                        <div class="sm-content">{{ i.doorName }}</div>
+                        <div class="sm-content">{{ i.revisionNo }}</div>
                       </div>
 
                       <div class="sm-row">
                         <div class="sm-title">Talimatname Adı</div>
-                        <div class="sm-content">{{ i.doorName }}</div>
+                        <div class="sm-content">{{ i.instructionName }}</div>
                       </div>
 
                       <div class="sm-row">
@@ -325,7 +326,8 @@
 
                 <!-- Add and update button start -->
                 <div class="q-pa-md q-gutter-sm">
-                  <q-btn label="Ekle" color="primary" @click="addSectionDesModal()" icon="fa-solid fa-plus" />
+                  <q-btn label="Ekle" color="primary" @click="addUpdateDialogEducationCardModal()"
+                    icon="fa-solid fa-plus" />
                 </div>
                 <!-- Add and update button end -->
 
@@ -341,7 +343,7 @@
                       <div class="row ">
                         <div class="col text-left">
                           <p style="font-size: 22px;">
-                            Kapı Listesi
+                            Video Listesi
                           </p>
                         </div>
                         <div class="col text-right">
@@ -365,7 +367,7 @@
                       <div class="row">
                         <div class="col text-left"></div>
                         <div class="col text-left text-bold">#</div>
-                        <div class="col text-left text-bold">Kapı Adı</div>
+                        <div class="col text-left text-bold">Video Adı</div>
                         <div class="col text-left text-bold">Durum</div>
                       </div>
                       <hr>
@@ -373,19 +375,25 @@
 
 
                       <!-- Content start -->
-                      <div class="row div-row" v-for="(i, index) in data.doorCard" :key="i" :class="GetRowClass(index)">
+                      <div class="row div-row" v-for="(i, index) in data.educationCard" :key="i"
+                        :class="GetRowClass(index)">
                         <div class=" col text-left active-btn ">
                           <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
                             <i class="fa-solid fa-pen-to-square fa-lg"></i>
                           </button>
 
-                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteEducationCardModal(i)">
                             <i class="fa-solid fa-trash-can fa-lg"></i>
                           </button>
 
+                          <button class="btn" style="border:none;" title="Videoyu izle">
+                            <i class="fa-solid fa-video fa-lg"></i>
+                          </button>
+
+
                         </div>
                         <div class=" col text-left "> {{ i.id }} </div>
-                        <div class=" col text-left"> {{ i.doorName }} </div>
+                        <div class=" col text-left"> {{ i.videoName }} </div>
                         <div class=" col text-left">
                           <span v-if="i.status" style="color:green">Aktif</span>
                           <span v-else style="color:red">Pasif</span>
@@ -405,7 +413,7 @@
 
                     <div>
                       <p style="font-size: 22px; margin-left: 30px;">
-                        Kapı Listesi
+                        Video Listesi
                       </p>
 
                       <q-input borderless filled dense debounce="300" v-model="filter" placeholder="Arama Yapınız" />
@@ -413,7 +421,7 @@
 
                     </div>
 
-                    <div class="sm-card" v-for="i in data.doorCard" :key="i">
+                    <div class="sm-card" v-for="i in data.educationCard" :key="i">
 
                       <div class="sm-row">
                         <div class="sm-title"></div>
@@ -422,8 +430,12 @@
                             <i class="fa-solid fa-pen-to-square"></i>
                           </button>
 
-                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteEducationCardModal(i)">
                             <i class="fa-solid fa-trash-can"></i>
+                          </button>
+
+                          <button class="btn" style="border:none;" title="Videoyu İzle">
+                            <i class="fa-solid fa-video"></i>
                           </button>
 
                         </div>
@@ -435,8 +447,8 @@
                       </div>
 
                       <div class="sm-row">
-                        <div class="sm-title">Kapı Adı</div>
-                        <div class="sm-content">{{ i.doorName }}</div>
+                        <div class="sm-title">Video Adı</div>
+                        <div class="sm-content">{{ i.videoName }}</div>
                       </div>
 
                       <div class="sm-row">
@@ -481,25 +493,26 @@
   <!-- doorCard Add and Update Modal End -->
 
   <!-- addUpdateDialogInstructionCard Add and Update Modal Start -->
-  <form-modal-dialog v-model="addUpdateDialogInstructionCard" title="Kapı" icon="fa-solid fa-door-open" negative="Kapat"
-    @positive="updateCommit()">
+  <form-modal-dialog v-model="addUpdateDialogInstructionCard" title="Talimatname" icon="fa-solid fa-person-chalkboard"
+    negative="Kapat" @positive="updateCommit()">
 
-    <div class="input-group">
-      <q-input class="txt" v-model="data.doorCard.doorName" filled label="Kapı Adı" lazy-rules
-        :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
-    </div>
 
+    <span>Yapılacak...</span>
 
   </form-modal-dialog>
   <!-- addUpdateDialogInstructionCard Add and Update Modal End -->
 
-
   <!-- addUpdateDialogEducationCard Add and Update Modal Start -->
-  <form-modal-dialog v-model="addUpdateDialogEducationCard" title="Kapı" icon="fa-solid fa-door-open" negative="Kapat"
-    @positive="updateCommit()">
+  <form-modal-dialog v-model="addUpdateDialogEducationCard" title="Eğitim Videosu" icon="fa-solid fa-door-open"
+    negative="Kapat" @positive="updateCommit()">
 
     <div class="input-group">
-      <q-input class="txt" v-model="data.doorCard.doorName" filled label="Kapı Adı" lazy-rules
+      <q-input class="txt" v-model="data.educationCard.videoName" filled label="Video Adı" lazy-rules
+        :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+    </div>
+
+    <div class="input-group">
+      <q-input class="txt" v-model="data.educationCard.videoUrl" filled label="Video Url" lazy-rules
         :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
     </div>
 
@@ -508,10 +521,28 @@
   <!-- addUpdateDialogEducationCard Add and Update Modal End -->
 
   <!-- Delete modal start -->
-  <form-modal-dialog v-model="deleteDialog" title="Sözleşme Silme Onayı" icon="fa-solid fa-trash" @positive="del()"
+  <form-modal-dialog v-model="deleteDoorCardDialog" title="Kapı Silme Onayı" icon="fa-solid fa-trash" @positive="del()"
     positive="Sil" negative="Kapat" persistent>
     <span class="q-ml-sm">
-      <p>{{ data.doorCard.doorName }} kapısını silinmesini onaylıyor musunuz ?</p>
+      <p>{{ dataitem.doorCard.doorName }} kapısını silinmesini onaylıyor musunuz ?</p>
+    </span>
+  </form-modal-dialog>
+  <!-- Delete modal end -->
+
+  <!-- Delete modal start -->
+  <form-modal-dialog v-model="deleteInstructionCardDialog" title="Talimatname Silme Onayı" icon="fa-solid fa-trash"
+    @positive="del()" positive="Sil" negative="Kapat" persistent>
+    <span class="q-ml-sm">
+      <p>{{ data.instructionCard.revisionNo }} talimatnamenin silinmesini onaylıyor musunuz ?</p>
+    </span>
+  </form-modal-dialog>
+  <!-- Delete modal end -->
+
+  <!-- Delete modal start -->
+  <form-modal-dialog v-model="deleteEducationCardDialog" title="Eğitim Silme Onayı" icon="fa-solid fa-trash"
+    @positive="del()" positive="Sil" negative="Kapat" persistent>
+    <span class="q-ml-sm">
+      <p>{{ data.educationCard.videoName }} eğitimin silinmesini onaylıyor musunuz ?</p>
     </span>
   </form-modal-dialog>
   <!-- Delete modal end -->
@@ -524,9 +555,11 @@ import PageContainer from 'components/PageContainer.vue'
 import FormModalDialog from 'components/FormModalDialog.vue'
 import data from 'src/data/visitorDefinition.json'
 
-/* add modal start */
+/* DoorCard add modal start */
 var dataItem = ref({
-  affiliatesIsShow: false
+  doorCard: [],
+  instructionCard: [],
+  educationCard: []
 });
 
 var addUpdateDialogDoorCard = ref(false);
@@ -537,10 +570,22 @@ var doorCard = ref(true)
 var instructionCard = ref(false)
 var educationCard = ref(false)
 
-const addSectionDesModal = () => {
+const addDoorCardModal = () => {
   addUpdateDialogDoorCard.value = true
 }
-/* add modal end */
+/* DoorCard add modal end */
+
+/* instructionCard add modal end */
+const addInstructionCardModal = () => {
+  addUpdateDialogInstructionCard.value = true
+}
+/* instructionCard add modal end */
+
+/* instructionCard add modal end */
+const addUpdateDialogEducationCardModal = () => {
+  addUpdateDialogEducationCard.value = true
+}
+/* instructionCard add modal end */
 
 
 /* update modal start */
@@ -554,10 +599,28 @@ const updateSectionDesModal = (item) => {
 
 
 /* delete modal start */
-var deleteDialog = ref(false)
-const deleteSectionDesModal = (item) => {
+var deleteDoorCardDialog = ref(false)
+const deleteDoorCardModal = (item) => {
+  // dataItem.doorCard.push(item);
+  //Object.assign(dataItem.doorCard.value, item)
+  console.log(dataItem);
+  deleteDoorCardDialog.value = true
+}
+/* delete modal end */
+
+/* delete modal start */
+var deleteInstructionCardDialog = ref(false)
+const deleteInstructionCardModal = (item) => {
   Object.assign(dataItem.value, item)
-  deleteDialog.value = true
+  deleteInstructionCardDialog.value = true
+}
+/* delete modal end */
+
+/* delete modal start */
+var deleteEducationCardDialog = ref(false)
+const deleteEducationCardModal = (item) => {
+  Object.assign(dataItem.value, item)
+  deleteEducationCardDialog.value = true
 }
 /* delete modal end */
 
