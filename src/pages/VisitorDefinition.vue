@@ -167,7 +167,145 @@
             <div v-show="instructionCard">
               <q-separator />
               <q-card-section class="text-subtitle2">
-                dfd dfdfd df dfd df lorem
+
+                <!-- Add and update button start -->
+                <div class="q-pa-md q-gutter-sm">
+                  <q-btn label="Ekle" color="primary" @click="addSectionDesModal()" icon="fa-solid fa-plus" />
+                </div>
+                <!-- Add and update button end -->
+
+
+                <!-- Data Screen Div Table Start -->
+                <div>
+
+                  <!-- Md Screen Div Table Start -->
+                  <div class="md-screen">
+                    <div class="q-ma-md div-table" style="border: none;">
+
+                      <!-- Banner start -->
+                      <div class="row ">
+                        <div class="col text-left">
+                          <p style="font-size: 22px;">
+                            Talimatname Listesi
+                          </p>
+                        </div>
+                        <div class="col text-right">
+
+                          <div class="row">
+                            <q-input class="col-10" borderless filled dense debounce="300" v-model="filter"
+                              placeholder="Arama Yapınız" />
+                            <q-btn class="col-1" icon="search" outline style="color: gray; margin-left: 3px;"
+                              @click="GetListData(filter)" />
+
+                          </div>
+
+
+                        </div>
+
+                      </div>
+                      <!-- Banner end -->
+
+
+                      <!-- Header start -->
+                      <div class="row">
+                        <div class="col text-left"></div>
+                        <div class="col text-left text-bold">#</div>
+                        <div class="col text-left text-bold">Revizyon No</div>
+                        <div class="col text-left text-bold">Talimatname Adı</div>
+                        <div class="col text-left text-bold">Durum</div>
+                      </div>
+                      <hr>
+                      <!-- Header end -->
+
+
+                      <!-- Content start -->
+                      <div class="row div-row" v-for="(i, index) in data.doorCard" :key="i" :class="GetRowClass(index)">
+                        <div class=" col text-left active-btn ">
+                          <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
+                            <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                          </button>
+
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                          </button>
+
+                        </div>
+                        <div class=" col text-left "> {{ i.id }} </div>
+                        <div class=" col text-left"> {{ i.doorName }} </div>
+                        <div class=" col text-left"> {{ i.doorName }} </div>
+                        <div class=" col text-left">
+                          <span v-if="i.status" style="color:green">Aktif</span>
+                          <span v-else style="color:red">Pasif</span>
+                        </div>
+                      </div>
+                      <!-- Content end -->
+
+
+
+                    </div>
+                  </div>
+                  <!-- Md Screen Div Table End -->
+
+
+                  <!-- Sm Screen Div Table Start -->
+                  <div class="sm-screen">
+
+                    <div>
+                      <p style="font-size: 22px; margin-left: 30px;">
+                        Talimatname Listesi
+                      </p>
+
+                      <q-input borderless filled dense debounce="300" v-model="filter" placeholder="Arama Yapınız" />
+                      <q-btn icon="search" outline style="color: gray; margin-left: 3px;" @click="GetListData(filter)" />
+
+                    </div>
+
+                    <div class="sm-card" v-for="i in data.doorCard" :key="i">
+
+                      <div class="sm-row">
+                        <div class="sm-title"></div>
+                        <div class="sm-content">
+                          <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </button>
+
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                            <i class="fa-solid fa-trash-can"></i>
+                          </button>
+
+                        </div>
+                      </div>
+
+                      <div class="sm-row">
+                        <div class="sm-title">#</div>
+                        <div class="sm-content">{{ i.id }}</div>
+                      </div>
+
+                      <div class="sm-row">
+                        <div class="sm-title">Revizyon No</div>
+                        <div class="sm-content">{{ i.doorName }}</div>
+                      </div>
+
+                      <div class="sm-row">
+                        <div class="sm-title">Talimatname Adı</div>
+                        <div class="sm-content">{{ i.doorName }}</div>
+                      </div>
+
+                      <div class="sm-row">
+                        <div class="sm-title">Durum</div>
+                        <div class="sm-content">
+                          <span v-if="i.status" style="color:green">Aktif</span>
+                          <span v-else style="color:red">Pasif</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Sm Screen Div Table End -->
+
+                </div>
+                <!-- Data Screen Div Table End -->
+
               </q-card-section>
             </div>
           </q-slide-transition>
@@ -184,7 +322,138 @@
             <div v-show="educationCard">
               <q-separator />
               <q-card-section class="text-subtitle2">
-                dfd dfdfd df dfd df lorem
+
+                <!-- Add and update button start -->
+                <div class="q-pa-md q-gutter-sm">
+                  <q-btn label="Ekle" color="primary" @click="addSectionDesModal()" icon="fa-solid fa-plus" />
+                </div>
+                <!-- Add and update button end -->
+
+
+                <!-- Data Screen Div Table Start -->
+                <div>
+
+                  <!-- Md Screen Div Table Start -->
+                  <div class="md-screen">
+                    <div class="q-ma-md div-table" style="border: none;">
+
+                      <!-- Banner start -->
+                      <div class="row ">
+                        <div class="col text-left">
+                          <p style="font-size: 22px;">
+                            Kapı Listesi
+                          </p>
+                        </div>
+                        <div class="col text-right">
+
+                          <div class="row">
+                            <q-input class="col-10" borderless filled dense debounce="300" v-model="filter"
+                              placeholder="Arama Yapınız" />
+                            <q-btn class="col-1" icon="search" outline style="color: gray; margin-left: 3px;"
+                              @click="GetListData(filter)" />
+
+                          </div>
+
+
+                        </div>
+
+                      </div>
+                      <!-- Banner end -->
+
+
+                      <!-- Header start -->
+                      <div class="row">
+                        <div class="col text-left"></div>
+                        <div class="col text-left text-bold">#</div>
+                        <div class="col text-left text-bold">Kapı Adı</div>
+                        <div class="col text-left text-bold">Durum</div>
+                      </div>
+                      <hr>
+                      <!-- Header end -->
+
+
+                      <!-- Content start -->
+                      <div class="row div-row" v-for="(i, index) in data.doorCard" :key="i" :class="GetRowClass(index)">
+                        <div class=" col text-left active-btn ">
+                          <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
+                            <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                          </button>
+
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                          </button>
+
+                        </div>
+                        <div class=" col text-left "> {{ i.id }} </div>
+                        <div class=" col text-left"> {{ i.doorName }} </div>
+                        <div class=" col text-left">
+                          <span v-if="i.status" style="color:green">Aktif</span>
+                          <span v-else style="color:red">Pasif</span>
+                        </div>
+                      </div>
+                      <!-- Content end -->
+
+
+
+                    </div>
+                  </div>
+                  <!-- Md Screen Div Table End -->
+
+
+                  <!-- Sm Screen Div Table Start -->
+                  <div class="sm-screen">
+
+                    <div>
+                      <p style="font-size: 22px; margin-left: 30px;">
+                        Kapı Listesi
+                      </p>
+
+                      <q-input borderless filled dense debounce="300" v-model="filter" placeholder="Arama Yapınız" />
+                      <q-btn icon="search" outline style="color: gray; margin-left: 3px;" @click="GetListData(filter)" />
+
+                    </div>
+
+                    <div class="sm-card" v-for="i in data.doorCard" :key="i">
+
+                      <div class="sm-row">
+                        <div class="sm-title"></div>
+                        <div class="sm-content">
+                          <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </button>
+
+                          <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                            <i class="fa-solid fa-trash-can"></i>
+                          </button>
+
+                        </div>
+                      </div>
+
+                      <div class="sm-row">
+                        <div class="sm-title">#</div>
+                        <div class="sm-content">{{ i.id }}</div>
+                      </div>
+
+                      <div class="sm-row">
+                        <div class="sm-title">Kapı Adı</div>
+                        <div class="sm-content">{{ i.doorName }}</div>
+                      </div>
+
+                      <div class="sm-row">
+                        <div class="sm-title">Durum</div>
+                        <div class="sm-content">
+                          <span v-if="i.status" style="color:green">Aktif</span>
+                          <span v-else style="color:red">Pasif</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Sm Screen Div Table End -->
+
+                </div>
+                <!-- Data Screen Div Table End -->
+
               </q-card-section>
             </div>
           </q-slide-transition>
@@ -198,27 +467,51 @@
   </page-container>
 
 
-  <!-- Add and Update Modal Start -->
-  <form-modal-dialog v-model="addUpdateDialog" title="Kapı" icon="fa-solid fa-briefcase" negative="Kapat"
+  <!-- doorCard Add and Update Modal Start -->
+  <form-modal-dialog v-model="addUpdateDialogDoorCard" title="Kapı" icon="fa-solid fa-door-open" negative="Kapat"
     @positive="updateCommit()">
 
-
-
-
     <div class="input-group">
-      <q-input class="txt" v-model="dataItem.explanation" filled label="Kapı Adı" icon="fa-solid fa-door-open" lazy-rules
+      <q-input class="txt" v-model="data.doorCard.doorName" filled label="Kapı Adı" lazy-rules
         :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
     </div>
 
 
   </form-modal-dialog>
-  <!-- Add and Update Modal End -->
+  <!-- doorCard Add and Update Modal End -->
+
+  <!-- addUpdateDialogInstructionCard Add and Update Modal Start -->
+  <form-modal-dialog v-model="addUpdateDialogInstructionCard" title="Kapı" icon="fa-solid fa-door-open" negative="Kapat"
+    @positive="updateCommit()">
+
+    <div class="input-group">
+      <q-input class="txt" v-model="data.doorCard.doorName" filled label="Kapı Adı" lazy-rules
+        :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+    </div>
+
+
+  </form-modal-dialog>
+  <!-- addUpdateDialogInstructionCard Add and Update Modal End -->
+
+
+  <!-- addUpdateDialogEducationCard Add and Update Modal Start -->
+  <form-modal-dialog v-model="addUpdateDialogEducationCard" title="Kapı" icon="fa-solid fa-door-open" negative="Kapat"
+    @positive="updateCommit()">
+
+    <div class="input-group">
+      <q-input class="txt" v-model="data.doorCard.doorName" filled label="Kapı Adı" lazy-rules
+        :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+    </div>
+
+
+  </form-modal-dialog>
+  <!-- addUpdateDialogEducationCard Add and Update Modal End -->
 
   <!-- Delete modal start -->
   <form-modal-dialog v-model="deleteDialog" title="Sözleşme Silme Onayı" icon="fa-solid fa-trash" @positive="del()"
     positive="Sil" negative="Kapat" persistent>
     <span class="q-ml-sm">
-      <p>{{ dataItem.doorCard.doorName }} kapısını silinmesini onaylıyor musunuz ?</p>
+      <p>{{ data.doorCard.doorName }} kapısını silinmesini onaylıyor musunuz ?</p>
     </span>
   </form-modal-dialog>
   <!-- Delete modal end -->
@@ -236,16 +529,16 @@ var dataItem = ref({
   affiliatesIsShow: false
 });
 
-const addUpdateDialog = ref(false);
+var addUpdateDialogDoorCard = ref(false);
+var addUpdateDialogInstructionCard = ref(false);
+var addUpdateDialogEducationCard = ref(false);
 
 var doorCard = ref(true)
 var instructionCard = ref(false)
 var educationCard = ref(false)
 
 const addSectionDesModal = () => {
-  addUpdateDialog.value = true
-  dataItem.workplace = null
-  //dataItem.agreementType[0]
+  addUpdateDialogDoorCard.value = true
 }
 /* add modal end */
 
@@ -253,7 +546,7 @@ const addSectionDesModal = () => {
 /* update modal start */
 const updateSectionDesModal = (item) => {
   Object.assign(dataItem.value, item)
-  addUpdateDialog.value = true
+  addUpdateDialogDoorCard.value = true
 }
 /* update modal end */
 

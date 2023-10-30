@@ -1,17 +1,15 @@
 {
-
-  "title" : "Profil Detayları",
-  "userName" : "Buğra Dost",
-  "address" : "arge 360 Şişli/İstanbul",
-  "phone" : "0555 555 5555",
-  "mail" : "info@arge360.com",
-  "civilStatus" : "Evli",
-  "nationality" : "Türkiye",
-  "soldiering" : "Yapıldı",
-  "birthDate" : "12.12.1999",
-  "birtyPlace" : "İstanbul",
-  "driveLicense" : "B",
-  "lorem" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-
-
+  "imgUrl": "https://assets.stickpng.com/images/585e4bcdcb11b227491c3396.png",
+  "name": "Buğra",
+  "surname": "Dost",
+  "address": "arge 360 Şişli/İstanbul",
+  "phone": "0555 555 5555",
+  "mail": "info@arge360.com",
+  "civilStatus": "Evli",
+  "nationality": "Türkiye",
+  "soldiering": "Yapıldı",
+  "birthDate": "12.12.1999",
+  "birtyPlace": "İstanbul",
+  "driveLicense": "B",
+  "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 }
