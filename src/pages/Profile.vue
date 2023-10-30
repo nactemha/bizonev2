@@ -26,39 +26,58 @@
                   <div v-show="personal">
                     <q-separator />
                     <q-card-section class="text-subtitle2">
-                      <div class="q-pa-md">
-                        <div class="q-gutter-md">
 
-                          <q-img :src="profileData.imgUrl" style="width: 300px; " />
+                      <div>
 
-                          <div class="text-h6 q-mt-sm q-mb-xs">Adı</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.name" readonly />
+                        <q-img :src="profileData.imgUrl" style="width: 300px; " />
 
-
-                          <div class="text-h6 q-mt-sm q-mb-xs">Soyadı</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.surname" readonly />
-
-
-                          <div class="text-h6 q-mt-sm q-mb-xs">Medeni Durumu</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.civilStatus" readonly />
-
-                          <div class="text-h6 q-mt-sm q-mb-xs">Uyruk</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.nationality" readonly />
-
-                          <div class="text-h6 q-mt-sm q-mb-xs">Askerlik Durumu</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.soldiering" readonly />
-
-                          <div class="text-h6 q-mt-sm q-mb-xs">Doğum Tarihi</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.birthDate" readonly />
-
-                          <div class="text-h6 q-mt-sm q-mb-xs">Doğum Yeri</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.birtyPlace" readonly />
-
-                          <div class="text-h6 q-mt-sm q-mb-xs">Sürücü Belgesi</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.driveLicense" readonly />
-
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.name" readonly filled label="Adı" lazy-rules
+                            :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
                         </div>
+
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.surname" readonly filled label="Soyadı" lazy-rules
+                            :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+                        </div>
+
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.civilStatus" readonly filled label="Medeni Durumu"
+                            lazy-rules :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+                        </div>
+
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.nationality" readonly filled label="Uyruk" lazy-rules
+                            :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+                        </div>
+
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.soldiering" readonly filled label="Askerlik Durumu"
+                            lazy-rules :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+                        </div>
+
+
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.birthDate" readonly filled label="Doğum Tarihi"
+                            lazy-rules :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+                        </div>
+
+
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.birtyPlace" readonly filled label="Doğum Yeri"
+                            lazy-rules :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+                        </div>
+
+
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.driveLicense" readonly filled label="Sürücü Belgesi"
+                            lazy-rules :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+                        </div>
+
+
+
                       </div>
+
                     </q-card-section>
                   </div>
                 </q-slide-transition>
@@ -79,19 +98,21 @@
                     <q-card-section class="text-subtitle2">
 
                       <div>
-                        <div>
-
-
-                          <div class="text-h6 q-mt-sm q-mb-xs ">Adres</div>
-                          <q-input standout="bg-blue text-white" class="bg-white" v-model="profileData.address" />
-
-                          <div class="text-h6 q-mt-sm q-mb-xs">Telefon</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.phone" readonly />
-
-                          <div class="text-h6 q-mt-sm q-mb-xs">Mail</div>
-                          <q-input standout="bg-blue text-white" v-model="profileData.mail" readonly />
-
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.address" readonly filled label="Adres" lazy-rules
+                            :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
                         </div>
+
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.phone" readonly filled label="Telefon" lazy-rules
+                            :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+                        </div>
+
+                        <div class="input-group">
+                          <q-input class="txt" v-model="profileData.mail" readonly filled label="Mail" lazy-rules
+                            :rules="[val => val && val.length > 0 || 'Boş geçilemez']" />
+                        </div>
+
                       </div>
                     </q-card-section>
 
