@@ -1,0 +1,42 @@
+{
+  "newInsert": [
+    {
+      "id": 1,
+      "name": "Buğra",
+      "surname": "Dost",
+      "idType": "Yeni Kimlik",
+      "tcNo": "2123112232",
+      "cardNo": "232323",
+      "carPlate": "34 BD 1903",
+      "company": "Arge 360",
+      "visitCause": "-",
+      "approvalUser": "Ahmet Can",
+      "approvalStatus": "Onaylanmadı",
+      "insertUser": "Ahmet Göçer",
+      "visitPlace": "Garanti",
+      "ohsCommitment": "-",
+      "status": false
+    }
+  ],
+  "inside": [
+    {
+      "id": 1,
+      "name": "Buğra",
+      "surname": "Dost",
+      "idType": "Yeni Kimlik",
+      "tcNo": "2123112232",
+      "cardNo": "232323",
+      "carPlate": "34 BD 1903",
+      "company": "Arge 360",
+      "visitCause": "-",
+      "approvalUser": "Ahmet Can",
+      "approvalStatus": "Onaylanmadı",
+      "insertUser": "Ahmet Göçer",
+      "visitPlace": "Garanti",
+      "ohsCommitment": "-",
+      "status": false
+    }
+  ],
+  "endings ": [],
+  "canceled ": []
+}
