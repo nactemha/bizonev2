@@ -13,7 +13,6 @@
 
       <!-- Data Table Start -->
       <div class="q-pa-md">
-
         <q-table :grid="$q.screen.xs" flat bordered title="Eğitim Plan Listesi" ref="tableRef" :rows="data"
           :columns="columns" row-key="id" v-model:pagination="pagination" :loading="loading" :filter="filter"
           binary-state-sort @request="onRequest">
