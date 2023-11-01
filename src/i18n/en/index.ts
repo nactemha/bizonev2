@@ -82,4 +82,17 @@ export default {
   biportal: "BI Portal",
   settings: "Settings",
   logout: "Logout",
+
+  employees: {
+    title: "Employees",
+    table_title: "Employee List",
+    tc_no: "T.C. No",
+    name_surname: "Name Surname",
+    workplace_name: "Workplace Name",
+    connectedWorkplace: "Connected Workplace",
+    recruitmentDate: "Recruitment Date",
+    userAuthorization: "User Authorization",
+    status: "Status",
+    searching: "Please search"
+  }
 }

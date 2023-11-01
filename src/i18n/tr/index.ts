@@ -81,7 +81,20 @@ export default {
   law: "Kanun",
   biportal: "BI Portalı",
   settings: "Ayarlar",
-  logout: "Çıkış"
+  logout: "Çıkış",
 
+  employees: {
+    title: "Çalışanlar",
+    table_title: "Çalışanlar Listesi",
+    tc_no: "T.C. No",
+    name_surname: "Adı Soyadı",
+    workplace_name: "İş Yeri Adı",
+    connectedWorkplace: "Bağlı Olduğu İşyeri",
+    recruitmentDate: "İşe Alım Tarihi",
+    userAuthorization: "Kullanıcı Yetkilendirme",
+    status: "Durum",
+    searching: "Arama yapınız"
+
+  }
 
 }

@@ -1,5 +1,5 @@
 <template>
-  <page-container title="Çalışan Özlük Bilgileri ">
+  <page-container :title="$t('employees.title')">
     <template #icon>
       <i class="fa-solid fa-elevator fa-xl"></i>
     </template>
@@ -21,26 +21,21 @@
               <div class="row ">
                 <div class="col text-left">
                   <p style="font-size: 22px;">
-                    Özlük Listesi
+                    {{ $t('employees.table_title') }}
                   </p>
                 </div>
                 <div class="col text-right">
 
                   <div class="row">
-                    <q-select class="col-2" borderless dense filled v-model="model"
-                      :options="['Arge 360', 'Garanti Bankası']" label="İşyeri" style=" margin-right: 13px;  " />
 
                     <q-select class="col-2" borderless dense filled v-model="model" :options="['Aktif', 'Pasif', 'Aday']"
-                      label="Durumu" style=" margin-right: 13px;  " />
+                      :label="$t('employees.status')" style=" margin-right: 13px;  " />
 
-                    <q-input class="col-5" borderless filled dense debounce="300" v-model="filter"
-                      placeholder="Arama Yapınız" />
+                    <q-input class="col-8" borderless filled dense debounce="300" v-model="filter"
+                      :placeholder="$t('employees.searching')" />
 
                     <q-btn class="col-1" icon="search" outline style="color: gray; margin-left: 3px;  "
                       @click="GetListData(filter)" />
-
-
-
 
                   </div>
 
@@ -50,53 +45,58 @@
               </div>
               <!-- Banner end -->
 
+              <q-markup-table style="box-shadow: none;">
+                <thead>
+                  <tr>
+                    <th class="text-left"></th>
+                    <th class="text-left">#</th>
+                    <th class="text-left"> {{ $t('employees.tc_no') }} </th>
+                    <th class="text-left"> {{ $t('employees.name_surname') }}</th>
+                    <th class="text-left">{{ $t('employees.workplace_name') }} </th>
+                    <th class="text-left">{{ $t('employees.connectedWorkplace') }}</th>
+                    <th class="text-left">{{ $t('employees.recruitmentDate') }} </th>
+                    <th class="text-left">{{ $t('employees.userAuthorization') }} </th>
+                    <th class="text-left">{{ $t('employees.status') }} </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="div-row" v-for="( i, index ) in  data " :key="i" :class="GetRowClass(index)">
+                    <td class="text-left">
+                      <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
+                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                      </button>
 
-              <!-- Header start -->
-              <div class="row">
-                <div class="col text-left"></div>
-                <div class="col text-left text-bold">#</div>
-                <div class="col text-left text-bold">İş Yeri</div>
-                <div class="col text-left text-bold">Ad Soyad</div>
-                <div class="col text-left text-bold">Sicil No</div>
-                <div class="col text-left text-bold">Bölüm</div>
-                <div class="col text-left text-bold">Görev</div>
-                <div class="col text-left text-bold">Durum</div>
-              </div>
-              <hr>
-              <!-- Header end -->
+                      <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                      </button>
+                      <button class="btn" style="border:none;" title="Detay" @click="deleteSectionDesModal(i)">
+                        <i class="fa-solid fa-eye fa-lg"></i>
+                      </button>
 
+                    </td>
 
-              <!-- Content start -->
-              <div class="row div-row" v-for="( i, index ) in  data " :key="i" :class="GetRowClass(index)">
-                <div class=" col text-left active-btn ">
-                  <button class="btn" style="border:none;" @click="updateSectionDesModal(i)" title="Düzenle">
-                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                  </button>
+                    <td class="text-left">{{ i.id }}</td>
+                    <td class="text-left">{{ i.tcNo }}</td>
+                    <td class="text-left">{{ i.name }} {{ i.surname }}</td>
+                    <td class="text-left">{{ i.workplace }} </td>
+                    <td class="text-left">
+                      <span v-if="i.affiliatesIsShow" style="color:green">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                      <span v-else style="color:red">
+                        <i class="fa-solid fa-xmark"></i>
+                      </span>
+                    </td>
+                    <td class="text-left">{{ i.recruitmentDate }}</td>
+                    <td class="text-left">{{ i.userAuthorization }} </td>
+                    <td class="text-left">
+                      <span v-if="i.status" style="color:green">Aktif</span>
+                      <span v-else style="color:red">Pasif</span>
+                    </td>
+                  </tr>
 
-                  <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
-                    <i class="fa-solid fa-trash-can fa-lg"></i>
-                  </button>
-                  <button class="btn" style="border:none;" title="Detay" @click="deleteSectionDesModal(i)">
-                    <i class="fa-solid fa-eye fa-lg"></i>
-                  </button>
-                  <button class="btn" style="border:none;" title="İş Sağlığı ve Güvenliği Taahhütnamesi"
-                    @click="deleteSectionDesModal(i)">
-                    <i class="fa-solid fa-file-lines fa-lg"></i>
-                  </button>
-
-                </div>
-                <div class=" col text-left "> {{ i.id }} </div>
-                <div class=" col text-left"> {{ i.workplace }} </div>
-                <div class=" col text-left"> {{ i.name }} {{ i.surname }} </div>
-                <div class=" col text-left"> {{ i.registryNo }} </div>
-                <div class=" col text-left"> {{ i.section }} </div>
-                <div class=" col text-left"> {{ i.taskName }} </div>
-                <div class=" col text-left">
-                  <span v-if="i.status" style="color:green">Aktif</span>
-                  <span v-else style="color:red">Pasif</span>
-                </div>
-              </div>
-              <!-- Content end -->
+                </tbody>
+              </q-markup-table>
 
 
 
@@ -110,10 +110,10 @@
 
             <div>
               <p style="font-size: 22px; margin-left: 30px;">
-                Özlük Listesi
+                {{ $t('employees.table_title') }}
               </p>
 
-              <q-input borderless filled dense debounce="300" v-model="filter" placeholder="Arama Yapınız" />
+              <q-input borderless filled dense debounce="300" v-model="filter" :placeholder="$t('employees.searching')" />
               <q-btn icon="search" outline style="color: gray; margin-left: 3px;" @click="GetListData(filter)" />
 
             </div>
@@ -127,7 +127,8 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                   </button>
 
-                  <button class="btn" style="border:none;" title="Durumu" @click="deleteSectionDesModal(i)">
+                  <button class="btn" style="border:none;" :title="$t('employees.status')"
+                    @click="deleteSectionDesModal(i)">
                     <i class="fa-solid fa-trash-can"></i>
                   </button>
 
@@ -141,32 +142,45 @@
               </div>
 
               <div class="sm-row">
-                <div class="sm-title">İş Yeri</div>
-                <div class="sm-content">{{ i.workplace }}</div>
+                <div class="sm-title">{{ $t('employees.tc_no') }} </div>
+                <div class="sm-content">{{ i.tcNo }}</div>
               </div>
 
               <div class="sm-row">
-                <div class="sm-title">Ad Soyad</div>
+                <div class="sm-title">{{ $t('employees.name_surname') }}</div>
                 <div class="sm-content">{{ i.name }} {{ i.surname }}</div>
               </div>
 
               <div class="sm-row">
-                <div class="sm-title">Sicil No</div>
-                <div class="sm-content">{{ i.registryNo }}</div>
+                <div class="sm-title">{{ $t('employees.workplace_name') }}</div>
+                <div class="sm-content">{{ i.workplace }} </div>
               </div>
 
               <div class="sm-row">
-                <div class="sm-title">Bölüm</div>
-                <div class="sm-content">{{ i.section }}</div>
+                <div class="sm-title">{{ $t('employees.connectedWorkplace') }}</div>
+                <div class="sm-content">
+                  <span v-if="i.affiliatesIsShow" style="color:green">
+                    <i class="fa-solid fa-check"></i>
+                  </span>
+                  <span v-else style="color:red">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
+                </div>
+              </div>
+
+
+              <div class="sm-row">
+                <div class="sm-title">{{ $t('employees.recruitmentDate') }}</div>
+                <div class="sm-content">{{ i.recruitmentDate }} </div>
               </div>
 
               <div class="sm-row">
-                <div class="sm-title">Görev</div>
-                <div class="sm-content">{{ i.taskName }}</div>
+                <div class="sm-title">{{ $t('employees.userAuthorization') }}</div>
+                <div class="sm-content">{{ i.userAuthorization }}</div>
               </div>
 
               <div class="sm-row">
-                <div class="sm-title">Durum</div>
+                <div class="sm-title">{{ $t('employees.status') }}</div>
                 <div class="sm-content">
                   <span v-if="i.status" style="color:green">Aktif</span>
                   <span v-else style="color:red">Pasif</span>
@@ -218,7 +232,8 @@
 import { ref } from 'vue'
 import PageContainer from 'components/PageContainer.vue'
 import FormModalDialog from 'components/FormModalDialog.vue'
-import data from 'src/data/employeePersonnel.json'
+import data from 'src/data/employees.json'
+
 
 /* add modal start */
 var dataItem = ref({
@@ -283,13 +298,13 @@ const GetRowClass = (i) => {
   color: #000;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .md-screen {
     display: block;
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 799px) {
   .sm-screen {
     display: block;
   }
