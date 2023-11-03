@@ -6,6 +6,38 @@
       "status": false
     }
   ],
-  "instructionCard": [],
-  "educationCard": []
+  "instructionCard": [
+    {
+      "id": 1,
+      "revisionNo": "r5",
+      "instructionName": "Ziyaretçi",
+      "status": false
+    },
+    {
+      "id": 2,
+      "revisionNo": "r7",
+      "instructionName": "Ziyaretçi",
+      "status": false
+    },
+    {
+      "id": 3,
+      "revisionNo": "r9",
+      "instructionName": "Ziyaretçi",
+      "status": true
+    },
+    {
+      "id": 4,
+      "revisionNo": "r6",
+      "instructionName": "Ziyaretçi",
+      "status": true
+    }
+  ],
+  "educationCard": [
+    {
+      "id": 1,
+      "videoName": "C# form dersi",
+      "videoUrl": "/",
+      "status": true
+    }
+  ]
 }
